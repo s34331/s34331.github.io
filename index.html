@@ -9,13 +9,13 @@
     
     <style>
         :root {
-            --primary: #ec4899;        
-            --primary-hover: #db2777;
-            --secondary: #8b5cf6;     
-            --accent: #f43f5e;
-            --card-bg: rgba(255, 255, 255, 0.78);
-            --card-border: rgba(255, 255, 255, 0.85);
-            --text-main: #0f172a;
+            --rose-primary: #f43f5e;
+            --pink-accent: #ec4899;
+            --purple-glow: #a855f7;
+            --soft-bg: #fdf4f8;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.9);
+            --text-dark: #1e1b4b;
             --text-muted: #64748b;
         }
 
@@ -28,340 +28,442 @@
 
         body {
             font-family: 'Prompt', sans-serif;
-            background-color: #faf5ff;
-            color: var(--text-main);
+            background-color: var(--soft-bg);
+            color: var(--text-dark);
             min-height: 100vh;
-            padding: 110px 20px 60px;
+            padding: 100px 20px 60px;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            overflow-x: hidden;
+            align-items: center;
             position: relative;
+            overflow-x: hidden;
         }
 
-        .bg-glow {
+        .aurora-bg {
             position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .aurora-blob {
+            position: absolute;
             border-radius: 50%;
             filter: blur(100px);
-            z-index: -1;
-            opacity: 0.55;
-            animation: floatGlow 12s infinite alternate ease-in-out;
+            opacity: 0.6;
+            animation: rotateAurora 20s infinite linear;
         }
 
-        .glow-1 {
-            top: -5%;
-            right: -5%;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, rgba(244, 63, 94, 0) 70%);
+        .blob-1 {
+            top: -10%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #f43f5e 0%, #ec4899 50%, transparent 100%);
         }
 
-        .glow-2 {
-            bottom: -5%;
-            left: -5%;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(192, 132, 252, 0) 70%);
-            animation-delay: -6s;
+        .blob-2 {
+            bottom: -15%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #c084fc 0%, #a855f7 50%, transparent 100%);
+            animation-duration: 25s;
+            animation-direction: reverse;
         }
 
-        @keyframes floatGlow {
-            0% { transform: scale(1) translate(0, 0) rotate(0deg); }
-            100% { transform: scale(1.12) translate(-25px, 30px) rotate(15deg); }
+        .blob-3 {
+            top: 40%;
+            left: 30%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #fbcfe8 0%, #f472b6 50%, transparent 100%);
+            opacity: 0.4;
+        }
+
+        @keyframes rotateAurora {
+            0% { transform: rotate(0deg) scale(1) translate(0, 0); }
+            50% { transform: rotate(180deg) scale(1.1) translate(30px, -20px); }
+            100% { transform: rotate(360deg) scale(1) translate(0, 0); }
         }
 
         .navbar {
             position: fixed;
-            top: 20px;
+            top: 24px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 6px 8px;
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 12px 35px rgba(236, 72, 153, 0.08);
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            padding: 8px 12px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.12);
             z-index: 1000;
         }
 
         .nav-link {
             text-decoration: none;
             color: var(--text-muted);
-            font-size: 13px;
-            font-weight: 500;
-            padding: 9px 20px;
-            border-radius: 30px;
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-        }
-
-        .nav-link.active {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: #ffffff;
-            box-shadow: 0 4px 18px rgba(236, 72, 153, 0.35);
-        }
-
-        .container {
-            max-width: 620px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--card-border);
-            border-radius: 32px;
-            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.07);
-            padding: 32px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            scroll-margin-top: 100px;
-            position: relative;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 22px 45px -10px rgba(236, 72, 153, 0.15);
-        }
-
-        .hero-card {
-            text-align: center;
-            position: relative;
-        }
-
-        .profile-wrapper {
-            position: relative;
-            width: 135px;
-            height: 170px;
-            margin: 0 auto 18px;
-        }
-
-        .profile-wrapper::after {
-            content: '';
-            position: absolute;
-            inset: -5px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 24px;
-            z-index: 0;
-            opacity: 0.85;
-            filter: blur(8px);
-        }
-
-        .profile-img {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-            object-fit: cover;
-            background-color: #fff;
-            border: 3px solid #ffffff;
-            z-index: 1;
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(236, 72, 153, 0.08);
-            border: 1px solid rgba(236, 72, 153, 0.2);
-            padding: 5px 14px;
-            border-radius: 30px;
-            font-size: 12px;
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 14px;
-        }
-
-        .status-dot {
-            width: 7px;
-            height: 7px;
-            background-color: var(--primary);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary);
-        }
-
-        h1 {
-            color: var(--text-main);
-            font-size: 27px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .english-name {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .section-title {
-            font-size: 18px;
-            color: var(--text-main);
-            font-weight: 700;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title i {
-            color: var(--primary);
-            background: rgba(236, 72, 153, 0.1);
-            padding: 9px;
-            border-radius: 12px;
-            font-size: 15px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .info-box {
-            background: rgba(255, 255, 255, 0.65);
-            border: 1px solid rgba(243, 232, 255, 0.8);
-            padding: 16px 10px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .info-box:hover {
-            background: #ffffff;
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.06);
-        }
-
-        .info-label {
-            font-size: 12px;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            margin-bottom: 6px;
-        }
-
-        .info-value {
             font-size: 13.5px;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .details-section {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .detail-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 245, 255, 0.8) 100%);
-            border: 1px solid rgba(233, 213, 255, 0.6);
-            padding: 22px;
-            border-radius: 22px;
-            transition: all 0.3s ease;
-        }
-
-        .detail-card:hover {
-            border-color: var(--primary);
-            background: #ffffff;
-            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.08);
-        }
-
-        .detail-card h3 {
-            font-size: 15px;
-            color: #701a75;
-            margin-bottom: 8px;
+            font-weight: 500;
+            padding: 8px 22px;
+            border-radius: 30px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .detail-card p {
-            font-size: 13.5px;
-            color: #475569;
-            line-height: 1.65;
+        .nav-link:hover {
+            color: var(--pink-accent);
         }
 
-        .btn-group {
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
+            color: #ffffff;
+            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+        }
+
+        .main-wrapper {
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .hero-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 36px;
+            padding: 45px;
+            box-shadow: 0 30px 60px rgba(244, 63, 94, 0.08);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 120px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
+            color: var(--pink-accent);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--rose-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--rose-primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(244, 63, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e1b4b 0%, #831843 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .english-name {
+            font-size: 16px;
+            color: var(--pink-accent);
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero-desc {
+            font-size: 14.5px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .profile-container {
+            position: relative;
             display: flex;
             justify-content: center;
-            margin-top: 8px;
+            align-items: center;
         }
 
-        .btn {
+        .profile-ring {
+            position: absolute;
+            width: 210px;
+            height: 210px;
+            border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+            background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
+            animation: morphBlob 10s infinite alternate ease-in-out;
+            opacity: 0.8;
+            filter: blur(10px);
+        }
+
+        .profile-box {
+            position: relative;
+            width: 180px;
+            height: 220px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 4px solid #ffffff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        .profile-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes morphBlob {
+            0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+            100% { border-radius: 70% 30% 46% 54% / 30% 60% 40% 70%; }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .section-header i {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            box-shadow: 0 8px 18px rgba(236, 72, 153, 0.3);
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .edu-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 22px 18px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pink-accent), var(--purple-glow));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-6px);
+            background: #ffffff;
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.1);
+        }
+
+        .edu-card:hover::before {
+            opacity: 1;
+        }
+
+        .edu-icon {
+            font-size: 24px;
+            color: var(--pink-accent);
+            margin-bottom: 10px;
+        }
+
+        .edu-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .edu-val {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .goals-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .goal-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 28px;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 25px 45px rgba(168, 85, 247, 0.12);
+        }
+
+        .goal-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #831843;
+        }
+
+        .goal-title i {
+            color: var(--purple-glow);
+        }
+
+        .goal-card p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .highlight-text {
+            color: var(--rose-primary);
+            font-weight: 600;
+        }
+
+        .btn-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn-sparkle {
             position: relative;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: #ffffff;
-            padding: 16px 36px;
-            text-decoration: none;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
+            color: white;
+            padding: 18px 45px;
             border-radius: 50px;
+            font-size: 16px;
             font-weight: 600;
-            font-size: 15px;
-            box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.4);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            width: 100%;
-            max-width: 340px;
+            text-decoration: none;
+            box-shadow: 0 15px 35px rgba(244, 63, 94, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
         }
 
-        .btn::before {
+        .btn-sparkle::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+            transform: rotate(30deg);
+            transition: transform 0.8s ease;
         }
 
-        .btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px -5px rgba(236, 72, 153, 0.5);
+        .btn-sparkle:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(236, 72, 153, 0.45);
         }
 
-        .btn:hover::before {
-            left: 100%;
+        .btn-sparkle:hover::after {
+            transform: rotate(30deg) translate(20%, 20%);
         }
 
-        .btn i {
+        .btn-sparkle i {
             transition: transform 0.3s ease;
         }
 
-        .btn:hover i {
+        .btn-sparkle:hover i {
             transform: translateX(6px);
         }
 
-        @media (max-width: 580px) {
-            body {
-                padding-top: 95px;
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 35px 25px;
             }
 
-            .info-grid {
+            .hero-content {
+                align-items: center;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .goals-container {
                 grid-template-columns: 1fr;
             }
 
             .navbar {
-                width: 92%;
+                width: 90%;
                 justify-content: space-around;
             }
 
@@ -369,83 +471,123 @@
                 padding: 8px 12px;
                 font-size: 12px;
             }
+
+            h1 {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow glow-1"></div>
-    <div class="bg-glow glow-2"></div>
+    <div class="aurora-bg">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+    </div>
 
     <nav class="navbar">
-        <a href="#home" class="nav-link active"><i class="fa-solid fa-sparkles"></i> หน้าแรก</a>
-        <a href="#about" class="nav-link"><i class="fa-solid fa-user-gear"></i> ข้อมูลส่วนตัว</a>
-        <a href="#interests" class="nav-link"><i class="fa-solid fa-lightbulb"></i> แรงบันดาลใจ</a>
+        <a href="#home" class="nav-link active"><i class="fa-solid fa-wand-magic-sparkles"></i> ต้อนรับ</a>
+        <a href="#about" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> การศึกษา</a>
+        <a href="#goals" class="nav-link"><i class="fa-solid fa-compass"></i> แรงบันดาลใจ</a>
     </nav>
 
-    <div class="container">
+    <div class="main-wrapper">
         
-        <div id="home" class="card hero-card">
-            <div class="status-badge">
-                <span class="status-dot"></span> มุ่งมั่นพัฒนาศักยภาพ
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <div class="badge-pill">
+                    <span class="pulse-dot"></span> มุ่งมั่นพัฒนาศักยภาพยุคใหม่
+                </div>
+                <h1>ศรัญญา แม้นแก้ว</h1>
+                <p class="english-name">SARUNYA MANKEAW</p>
+                <p class="hero-desc">
+                    ยินดีต้อนรับสู่พื้นที่แสดงตัวตน ประวัติการเรียนรู้ และเส้นทางความฝัน มุ่งสู่การเป็นนักศึกษาวิศวกรรมศาสตร์อย่างภาคภูมิใจ
+                </p>
             </div>
-            <div class="profile-wrapper">
-                <img src="S__49872901.jpg" alt="โปรไฟล์ ศรัญญา" class="profile-img">
-            </div>
-            <h1>ศรัญญา แม้นแก้ว</h1>
-            <p class="english-name">Sarunya Mankeaw</p>
-        </div>
 
-        <div id="about" class="card">
-            <h2 class="section-title"><i class="fa-solid fa-address-card"></i> ประวัติการศึกษา</h2>
-            <div class="info-grid">
-                <div class="info-box">
-                    <span class="info-label"><i class="fa-solid fa-building-columns"></i> สถานศึกษา</span>
-                    <span class="info-value">บ้านบึง "อุตสาหกรรมนุเคราะห์"</span>
-                </div>
-                <div class="info-box">
-                    <span class="info-label"><i class="fa-solid fa-graduation-cap"></i> ระดับการศึกษา</span>
-                    <span class="info-value">มัธยมศึกษาปีที่ 6</span>
-                </div>
-                <div class="info-box">
-                    <span class="info-label"><i class="fa-solid fa-atom"></i> สายการเรียน</span>
-                    <span class="info-value">วิทยาศาสตร์ - คณิตศาสตร์</span>
+            <div class="profile-container">
+                <div class="profile-ring"></div>
+                <div class="profile-box">
+                    <img src="S__49872901.jpg" alt="ภาพโปรไฟล์ ศรัญญา">
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="interests" class="card">
-            <h2 class="section-title"><i class="fa-solid fa-rocket"></i> แรงบันดาลใจและเส้นทางอนาคต</h2>
-            <div class="details-section">
-                <div class="detail-card">
-                    <h3><i class="fa-solid fa-chart-line"></i> เป้าหมายทางการศึกษา</h3>
-                    <p>ตั้งใจเข้าศึกษาต่อระดับอุดมศึกษาใน <strong>คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการ (Industrial Engineering)</strong> เพื่อต่อยอดความรู้ด้านเทคโนโลยีอุตสาหกรรมยุคใหม่ 4.0 และการบริหารจัดการระบบงานให้เกิดประสิทธิภาพสูงสุด</p>
+         <section id="about">
+            <div class="section-header">
+                <i class="fa-solid fa-landmark"></i>
+                <h2>ประวัติการศึกษา (Education)</h2>
+            </div>
+
+            <div class="education-grid">
+                <div class="edu-card">
+                    <i class="fa-solid fa-school edu-icon"></i>
+                    <div class="edu-label">สถานศึกษา</div>
+                    <div class="edu-val">บ้านบึง "อุตสาหกรรมนุเคราะห์"</div>
                 </div>
-                <div class="detail-card">
-                    <h3><i class="fa-solid fa-diagram-project"></i> ความสนใจทางวิชาการและทักษะ</h3>
-                    <p>มีความสนใจเป็นพิเศษในด้าน <strong>การคิดเชิงระบบ (Systems Thinking)</strong> การออกแบบและปรับปรุงกระบวนการทำงาน การวิเคราะห์ข้อมูลเพื่อการตัดสินใจ รวมถึงการนำเทคโนโลยี Lean & Smart Factory มาประยุกต์ใช้แก้ปัญหาจริง</p>
+
+                <div class="edu-card">
+                    <i class="fa-solid fa-user-graduate edu-icon"></i>
+                    <div class="edu-label">ระดับการศึกษา</div>
+                    <div class="edu-val">มัธยมศึกษาปีที่ 6</div>
+                </div>
+
+                <div class="edu-card">
+                    <i class="fa-solid fa-microscope edu-icon"></i>
+                    <div class="edu-label">สายการเรียน</div>
+                    <div class="edu-val">วิทยาศาสตร์ - คณิตศาสตร์</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-         <div class="btn-group">
-            <a href="portfolio.html" class="btn">
-                เข้าชมแฟ้มสะสมผลงาน (Portfolio)
-                <i class="fa-solid fa-arrow-right-long"></i>
+         <section id="goals">
+            <div class="section-header">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <h2>แรงบันดาลใจและเป้าหมาย (Inspiration)</h2>
+            </div>
+
+            <div class="goals-container">
+                <div class="goal-card">
+                    <div class="goal-title">
+                        <i class="fa-solid fa-bullseye"></i>
+                        เป้าหมายทางการศึกษา
+                    </div>
+                    <p>
+                        ตั้งใจเข้าศึกษาต่อใน <span class="highlight-text">คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการ (Industrial Engineering)</span> เพื่อประยุกต์ใช้เทคโนโลยีและการจัดการระบบอย่างสมบูรณ์แบบ
+                    </p>
+                </div>
+
+                <div class="goal-card">
+                    <div class="goal-title">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        ความสนใจและทักษะ
+                    </div>
+                    <p>
+                        มีความหลงใหลใน <span class="highlight-text">การคิดเชิงระบบ (Systems Thinking)</span> การวางแผนกระบวนการผลิต และการเพิ่มประสิทธิภาพการทำงานด้วย Smart Technology
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="btn-wrapper">
+            <a href="portfolio.html" class="btn-sparkle">
+                <span>เข้าชมแฟ้มสะสมผลงาน (Portfolio)</span>
+                <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
 
     </div>
 
     <script>
-        const sections = document.querySelectorAll('.card');
+        const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
 
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (window.pageYOffset >= (sectionTop - 160)) {
+                if (window.pageYOffset >= (sectionTop - 180)) {
                     current = section.getAttribute('id');
                 }
             });
