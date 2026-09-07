@@ -1,35 +1,413 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta viewport="width=device-width, initial-scale=1.0">
-<title>แฟ้มสะสมงานของฉัน  </title>
-<style>
-body { font-family: sans-serif; background-color: #f4f7f6; text-align: center;
-padding: 30px; }
-.container { max-width: 800px; margin: 0 auto; }
-.project-card { background: white; padding: 20px; margin: 20px 0; border-radius:
-8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
-.btn { display: inline-block; background: #2c3e50; color: white; padding: 10px
-20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลงานและกิจกรรม | ศรัญญา แม้นแก้ว</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #8b5cf6;      
+            --primary-hover: #7c3aed;
+            --secondary: #ec4899;      
+            --dark-bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --card-border: rgba(255, 255, 255, 0.9);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 50px 20px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .bg-glow {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.45;
+            animation: pulseGlow 10s infinite alternate ease-in-out;
+        }
+
+        .glow-1 {
+            top: -10%;
+            left: -5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(236, 72, 153, 0) 70%);
+        }
+
+        .glow-2 {
+            bottom: -10%;
+            right: -5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, rgba(139, 92, 246, 0) 70%);
+            animation-delay: -5s;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.1) translate(20px, -20px); }
+        }
+
+        .portfolio-container {
+            max-width: 900px;
+            width: 100%;
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--card-border);
+            border-radius: 36px;
+            padding: 50px 45px;
+            box-shadow: 0 30px 60px -12px rgba(139, 92, 246, 0.12);
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        h1 {
+            color: var(--text-main);
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .interests-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .interest-tag {
+            background: rgba(255, 255, 255, 0.8);
+            color: #475569;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13.5px;
+            font-weight: 500;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .interest-tag:hover {
+            background: #ffffff;
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(139, 92, 246, 0.12);
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: var(--text-main);
+            margin: 45px 0 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, rgba(236, 72, 153, 0.3) 50%, transparent 100%);
+            border-radius: 2px;
+        }
+
+        .section-title i {
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 8px;
+            border-radius: 12px;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(241, 245, 249, 1);
+            border-radius: 26px;
+            padding: 30px;
+            margin-bottom: 28px;
+            text-align: left;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            background: #ffffff;
+            border-color: rgba(236, 72, 153, 0.3);
+            box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.15);
+        }
+
+        .project-img-wrapper {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            margin-bottom: 22px;
+            background-color: #f1f5f9;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .project-img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.02);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+
+        .project-number {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+        }
+
+        .project-card h3 {
+            color: var(--text-main);
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 14.5px;
+            line-height: 1.7;
+            padding-left: 46px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 35px;
+            width: 100%;
+        }
+
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 32px rgba(236, 72, 153, 0.4);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover i {
+            transform: translateX(-5px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            .portfolio-container {
+                padding: 30px 20px;
+                border-radius: 28px;
+            }
+
+            .project-card {
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .project-card p {
+                padding-left: 0;
+                margin-top: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<h1> แฟ้มสะสมงาน (Portfolio) น.ส.ศรัญญา แม้นแก้ว</h1>
-<p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจค่ะ</p>
-<!-- กล่องผลงานชนที่ ้ิ 1 -->
-<div class="project-card">
-<h3>1. โครงงาน/ชิ้นงานวิทยาศาสตร์คำนวณ  </h3>
-<p>รายละเอียดชิ้นงาน  : เขียนอธบายสั้นๆ ว่าทำอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง  </p>
-</div>
-<!-- กล่องผลงานชิ้นที่ 2 -->
-<div class="project-card">
-<h3>2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-<p>รายละเอียดชิ้นงาน  : เข้าร่วมการประกวด หรือกิจกรรมของโรงเรียน...</p>
-</div>
-<!-- ปุ่มกดกลับหน้าแรก -->
-<a href="index.html" class="btn"> กลับหน้าแรก</a>
-</div>
+
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <div class="portfolio-container">
+        
+        <div class="profile-section">
+            <div class="header-badge">
+                <i class="fa-solid fa-folder-open"></i> Portfolio Archive
+            </div>
+            <h1>นายอัครินทร์ เสารยะวิเศษ</h1>
+            <p class="subtitle">แฟ้มสะสมผลงาน กิจกรรมวิชาการ และการฝึกประสบการณ์</p>
+            
+            <div class="interests-container">
+                <span class="interest-tag"><i class="fa-solid fa-calculator"></i> คณิตศาสตร์</span>
+                <span class="interest-tag"><i class="fa-solid fa-flask"></i> วิทยาศาสตร์และเทคโนโลยี</span>
+                <span class="interest-tag"><i class="fa-solid fa-gear"></i> วิศวกรรมอุตสาหการ</span>
+                <span class="interest-tag"><i class="fa-solid fa-chart-pie"></i> การบริหารจัดการระบบ</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">
+            <i class="fa-solid fa-trophy"></i> ผลงานและกิจกรรม (Projects & Activities)
+        </h2>
+
+        <div class="project-card">
+            <div class="project-img-wrapper">
+                <img src="47F25AEF-EE5C-41C5-806C-11C6F1355588.png" alt="เกียรติบัตรเข้าร่วมงาน KMITL Open House สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง" class="project-img">
+            </div>
+            <div class="project-header">
+                <span class="project-number">1</span>
+                <h3>เข้าร่วมกิจกรรมเปิดบ้านวิชาการ KMITL Open House (สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง)</h3>
+            </div>
+            <p><strong>รายละเอียดกิจกรรม :</strong> เข้าร่วมงานเปิดบ้านวิชาการเพื่อเข้าชมการแสดงผลงาน นวัตกรรม และห้องปฏิบัติการจริงของสาขาวิชาวิศวกรรมอุตสาหการ พร้อมทั้งร่วมฟังการแนะแนวหลักสูตรและสอบถามประสบการณ์ตรงจากอาจารย์ประจำสาขาและรุ่นพี่นักศึกษา</p>
+        </div>
+
+        <div class="project-card">
+            <div class="project-img-wrapper">
+                <img src="C4EB96E4-4C3E-49F9-97F2-B0E811985FA0.png" alt="เข้าร่วมกิจกรรมบริหารธุรกิจ มหาวิทยาลัยบูรพา" class="project-img">
+            </div>
+            <div class="project-header">
+                <span class="project-number">2</span>
+                <h3>เข้าร่วมกิจกรรมวิชาการด้านการบริหารธุรกิจ (มหาวิทยาลัยบูรพา)</h3>
+            </div>
+            <p><strong>รายละเอียดกิจกรรม :</strong> เข้าร่วมโครงการเปิดบ้าน/แข่งขันวิชาการด้านการบริหารธุรกิจ ณ มหาวิทยาลัยบูรพา เพื่อเรียนรู้กระบวนการวางแผนเชิงยุทธศาสตร์ การบริหารจัดการทรัพยากร การวิเคราะห์ตลาด และระบบการดำเนินงานในองค์กร</p>
+        </div>
+
+         <div class="btn-group">
+            <a href="index.html" class="btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                กลับหน้าแรก
+            </a>
+        </div>
+
+    </div>
+
 </body>
 </html>
