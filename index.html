@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ศรัญญา แม้นแก้ว | Modern Portfolio</title>
+    <title>ศรัญญา แม้นแก้ว | Personal Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary: #4f46e5;
-            --primary-hover: #4338ca;
-            --secondary: #06b6d4;
-            --bg-dark: #0f172a;
-            --card-bg: rgba(255, 255, 255, 0.75);
-            --card-border: rgba(255, 255, 255, 0.6);
-            --text-main: #1e293b;
+            --primary: #ec4899;        
+            --primary-hover: #db2777;
+            --secondary: #8b5cf6;     
+            --accent: #f43f5e;
+            --card-bg: rgba(255, 255, 255, 0.78);
+            --card-border: rgba(255, 255, 255, 0.85);
+            --text-main: #0f172a;
             --text-muted: #64748b;
         }
 
@@ -28,10 +28,10 @@
 
         body {
             font-family: 'Prompt', sans-serif;
-            background-color: #f8fafc;
+            background-color: #faf5ff;
             color: var(--text-main);
             min-height: 100vh;
-            padding: 100px 20px 60px;
+            padding: 110px 20px 60px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -42,59 +42,59 @@
         .bg-glow {
             position: fixed;
             border-radius: 50%;
-            filter: blur(90px);
+            filter: blur(100px);
             z-index: -1;
-            opacity: 0.6;
-            animation: pulseGlow 10s infinite alternate ease-in-out;
+            opacity: 0.55;
+            animation: floatGlow 12s infinite alternate ease-in-out;
         }
 
         .glow-1 {
-            top: -10%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, rgba(168, 85, 247, 0) 70%);
+            top: -5%;
+            right: -5%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, rgba(244, 63, 94, 0) 70%);
         }
 
         .glow-2 {
-            bottom: -10%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, rgba(59, 130, 246, 0) 70%);
-            animation-delay: -5s;
+            bottom: -5%;
+            left: -5%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(192, 132, 252, 0) 70%);
+            animation-delay: -6s;
         }
 
-        @keyframes pulseGlow {
-            0% { transform: scale(1) translate(0, 0); }
-            100% { transform: scale(1.15) translate(30px, 20px); }
+        @keyframes floatGlow {
+            0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+            100% { transform: scale(1.12) translate(-25px, 30px) rotate(15deg); }
         }
 
         .navbar {
             position: fixed;
-            top: 24px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            padding: 6px 10px;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 6px 8px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 12px 35px rgba(236, 72, 153, 0.08);
             z-index: 1000;
         }
 
         .nav-link {
             text-decoration: none;
             color: var(--text-muted);
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 500;
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 30px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
             gap: 6px;
@@ -105,65 +105,65 @@
         }
 
         .nav-link.active {
-            background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: #ffffff;
-            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 4px 18px rgba(236, 72, 153, 0.35);
         }
 
         .container {
-            max-width: 650px;
+            max-width: 620px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 22px;
         }
 
         .card {
             background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--card-border);
-            border-radius: 28px;
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+            border-radius: 32px;
+            box-shadow: 0 15px 35px -10px rgba(139, 92, 246, 0.07);
             padding: 32px;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             scroll-margin-top: 100px;
+            position: relative;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 22px 45px -10px rgba(236, 72, 153, 0.15);
         }
 
         .hero-card {
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
         .profile-wrapper {
             position: relative;
-            width: 140px;
-            height: 175px;
-            margin: 0 auto 20px;
+            width: 135px;
+            height: 170px;
+            margin: 0 auto 18px;
         }
 
         .profile-wrapper::after {
             content: '';
             position: absolute;
-            inset: -4px;
+            inset: -5px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 18px;
+            border-radius: 24px;
             z-index: 0;
-            opacity: 0.8;
-            filter: blur(6px);
+            opacity: 0.85;
+            filter: blur(8px);
         }
 
         .profile-img {
             position: relative;
             width: 100%;
             height: 100%;
-            border-radius: 16px;
+            border-radius: 20px;
             object-fit: cover;
             background-color: #fff;
             border: 3px solid #ffffff;
@@ -174,27 +174,27 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(79, 70, 229, 0.08);
-            border: 1px solid rgba(79, 70, 229, 0.2);
-            padding: 4px 12px;
-            border-radius: 20px;
+            background: rgba(236, 72, 153, 0.08);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            padding: 5px 14px;
+            border-radius: 30px;
             font-size: 12px;
             color: var(--primary);
             font-weight: 500;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .status-dot {
-            width: 6px;
-            height: 6px;
-            background-color: #10b981;
+            width: 7px;
+            height: 7px;
+            background-color: var(--primary);
             border-radius: 50%;
-            box-shadow: 0 0 8px #10b981;
+            box-shadow: 0 0 10px var(--primary);
         }
 
         h1 {
             color: var(--text-main);
-            font-size: 26px;
+            font-size: 27px;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
@@ -203,6 +203,7 @@
             font-size: 14px;
             color: var(--text-muted);
             margin-top: 2px;
+            font-weight: 400;
         }
 
         .section-title {
@@ -217,10 +218,10 @@
 
         .section-title i {
             color: var(--primary);
-            background: rgba(79, 70, 229, 0.1);
-            padding: 8px;
-            border-radius: 10px;
-            font-size: 16px;
+            background: rgba(236, 72, 153, 0.1);
+            padding: 9px;
+            border-radius: 12px;
+            font-size: 15px;
         }
 
         .info-grid {
@@ -230,10 +231,10 @@
         }
 
         .info-box {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            padding: 16px 12px;
-            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(243, 232, 255, 0.8);
+            padding: 16px 10px;
+            border-radius: 20px;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -242,6 +243,7 @@
             background: #ffffff;
             border-color: var(--primary);
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.06);
         }
 
         .info-label {
@@ -250,12 +252,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 5px;
             margin-bottom: 6px;
         }
 
         .info-value {
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 600;
             color: var(--text-main);
         }
@@ -267,21 +269,22 @@
         }
 
         .detail-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(238, 242, 255, 0.5) 100%);
-            border: 1px solid rgba(199, 210, 254, 0.5);
-            padding: 20px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 245, 255, 0.8) 100%);
+            border: 1px solid rgba(233, 213, 255, 0.6);
+            padding: 22px;
+            border-radius: 22px;
             transition: all 0.3s ease;
         }
 
         .detail-card:hover {
             border-color: var(--primary);
             background: #ffffff;
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.08);
         }
 
         .detail-card h3 {
             font-size: 15px;
-            color: #312e81;
+            color: #701a75;
             margin-bottom: 8px;
             display: flex;
             align-items: center;
@@ -289,15 +292,15 @@
         }
 
         .detail-card p {
-            font-size: 14px;
+            font-size: 13.5px;
             color: #475569;
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         .btn-group {
             display: flex;
             justify-content: center;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .btn {
@@ -306,14 +309,14 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: linear-gradient(135deg, var(--primary) 0%, #312e81 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: #ffffff;
             padding: 16px 36px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             font-size: 15px;
-            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.4);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             width: 100%;
             max-width: 340px;
@@ -327,13 +330,13 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.6s ease;
         }
 
         .btn:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 30px -5px rgba(79, 70, 229, 0.5);
+            box-shadow: 0 15px 30px -5px rgba(236, 72, 153, 0.5);
         }
 
         .btn:hover::before {
@@ -350,7 +353,7 @@
 
         @media (max-width: 580px) {
             body {
-                padding-top: 90px;
+                padding-top: 95px;
             }
 
             .info-grid {
@@ -358,7 +361,7 @@
             }
 
             .navbar {
-                width: 90%;
+                width: 92%;
                 justify-content: space-around;
             }
 
@@ -375,66 +378,66 @@
     <div class="bg-glow glow-2"></div>
 
     <nav class="navbar">
-        <a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> หน้าแรก</a>
-        <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> เกี่ยวกับฉัน</a>
-        <a href="#interests" class="nav-link"><i class="fa-solid fa-compass"></i> เป้าหมาย</a>
+        <a href="#home" class="nav-link active"><i class="fa-solid fa-sparkles"></i> หน้าแรก</a>
+        <a href="#about" class="nav-link"><i class="fa-solid fa-user-gear"></i> ข้อมูลส่วนตัว</a>
+        <a href="#interests" class="nav-link"><i class="fa-solid fa-lightbulb"></i> แรงบันดาลใจ</a>
     </nav>
 
     <div class="container">
         
         <div id="home" class="card hero-card">
             <div class="status-badge">
-                <span class="status-dot"></span> พร้อมสำหรับการเรียนรู้
+                <span class="status-dot"></span> มุ่งมั่นพัฒนาศักยภาพ
             </div>
             <div class="profile-wrapper">
-                <img src="S__49872901.jpg" alt="โปรไฟล์ อัครินทร์" class="profile-img">
+                <img src="S__49872901.jpg" alt="โปรไฟล์ ศรัญญา" class="profile-img">
             </div>
             <h1>ศรัญญา แม้นแก้ว</h1>
             <p class="english-name">Sarunya Mankeaw</p>
         </div>
 
         <div id="about" class="card">
-            <h2 class="section-title"><i class="fa-solid fa-id-card"></i> ข้อมูลส่วนตัว</h2>
+            <h2 class="section-title"><i class="fa-solid fa-address-card"></i> ประวัติการศึกษา</h2>
             <div class="info-grid">
                 <div class="info-box">
-                    <span class="info-label"><i class="fa-solid fa-school"></i> โรงเรียน</span>
+                    <span class="info-label"><i class="fa-solid fa-building-columns"></i> สถานศึกษา</span>
                     <span class="info-value">บ้านบึง "อุตสาหกรรมนุเคราะห์"</span>
                 </div>
                 <div class="info-box">
-                    <span class="info-label"><i class="fa-solid fa-graduation-cap"></i> ระดับชั้น</span>
+                    <span class="info-label"><i class="fa-solid fa-graduation-cap"></i> ระดับการศึกษา</span>
                     <span class="info-value">มัธยมศึกษาปีที่ 6</span>
                 </div>
                 <div class="info-box">
-                    <span class="info-label"><i class="fa-solid fa-book-open"></i> แผนการเรียน</span>
-                    <span class="info-value">วิทย์ - คณิต</span>
+                    <span class="info-label"><i class="fa-solid fa-atom"></i> สายการเรียน</span>
+                    <span class="info-value">วิทยาศาสตร์ - คณิตศาสตร์</span>
                 </div>
             </div>
         </div>
 
-         <div id="interests" class="card">
-            <h2 class="section-title"><i class="fa-solid fa-bullseye"></i> ความสนใจและเป้าหมาย</h2>
+        <div id="interests" class="card">
+            <h2 class="section-title"><i class="fa-solid fa-rocket"></i> แรงบันดาลใจและเส้นทางอนาคต</h2>
             <div class="details-section">
                 <div class="detail-card">
-                    <h3><i class="fa-solid fa-microchip"></i> เป้าหมายในการศึกษาต่อ</h3>
-                    <p>มีความมุ่งมั่นตั้งใจที่จะศึกษาต่อในระดับปริญญาตรี <strong>คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการ (IE)</strong> เพื่อเตรียมความพร้อมสู่สายอาชีพวิศวกรมืออาชีพในอนาคต</p>
+                    <h3><i class="fa-solid fa-chart-line"></i> เป้าหมายทางการศึกษา</h3>
+                    <p>ตั้งใจเข้าศึกษาต่อระดับอุดมศึกษาใน <strong>คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการ (Industrial Engineering)</strong> เพื่อต่อยอดความรู้ด้านเทคโนโลยีอุตสาหกรรมยุคใหม่ 4.0 และการบริหารจัดการระบบงานให้เกิดประสิทธิภาพสูงสุด</p>
                 </div>
                 <div class="detail-card">
-                    <h3><i class="fa-solid fa-gears"></i> สิ่งที่สนใจและความตั้งใจ</h3>
-                    <p>สนใจกระบวนการเพิ่มประสิทธิภาพการทำงาน การลดความสูญเปล่าในระบบการผลิต (Lean Manufacturing) ตลอดจนการประยุกต์ใช้เทคโนโลยีและการจัดการเชิงระบบเพื่อยกระดับอุตสาหกรรมยุคใหม่</p>
+                    <h3><i class="fa-solid fa-diagram-project"></i> ความสนใจทางวิชาการและทักษะ</h3>
+                    <p>มีความสนใจเป็นพิเศษในด้าน <strong>การคิดเชิงระบบ (Systems Thinking)</strong> การออกแบบและปรับปรุงกระบวนการทำงาน การวิเคราะห์ข้อมูลเพื่อการตัดสินใจ รวมถึงการนำเทคโนโลยี Lean & Smart Factory มาประยุกต์ใช้แก้ปัญหาจริง</p>
                 </div>
             </div>
         </div>
 
-        <div class="btn-group">
+         <div class="btn-group">
             <a href="portfolio.html" class="btn">
-                ดูแฟ้มสะสมผลงาน (Portfolio)
-                <i class="fa-solid fa-arrow-right"></i>
+                เข้าชมแฟ้มสะสมผลงาน (Portfolio)
+                <i class="fa-solid fa-arrow-right-long"></i>
             </a>
         </div>
 
     </div>
 
-    <<script>
+    <script>
         const sections = document.querySelectorAll('.card');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -442,8 +445,7 @@
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 150)) {
+                if (window.pageYOffset >= (sectionTop - 160)) {
                     current = section.getAttribute('id');
                 }
             });
