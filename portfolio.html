@@ -9,13 +9,13 @@
     
     <style>
         :root {
-            --primary: #8b5cf6;      
-            --primary-hover: #7c3aed;
-            --secondary: #ec4899;      
-            --dark-bg: #0f172a;
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --card-border: rgba(255, 255, 255, 0.9);
-            --text-main: #1e293b;
+            --rose-primary: #f43f5e;
+            --pink-accent: #ec4899;
+            --purple-glow: #a855f7;
+            --soft-bg: #fdf4f8;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.9);
+            --text-dark: #1e1b4b;
             --text-muted: #64748b;
         }
 
@@ -28,386 +28,536 @@
 
         body {
             font-family: 'Prompt', sans-serif;
-            background-color: #f8fafc;
-            color: var(--text-main);
+            background-color: var(--soft-bg);
+            color: var(--text-dark);
             min-height: 100vh;
-            padding: 50px 20px 60px;
+            padding: 90px 20px 60px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             position: relative;
             overflow-x: hidden;
         }
 
-        .bg-glow {
+        .aurora-bg {
             position: fixed;
-            border-radius: 50%;
-            filter: blur(120px);
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             z-index: -1;
-            opacity: 0.45;
-            animation: pulseGlow 10s infinite alternate ease-in-out;
+            overflow: hidden;
+            pointer-events: none;
         }
 
-        .glow-1 {
+        .aurora-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.55;
+            animation: rotateAurora 22s infinite linear;
+        }
+
+        .blob-1 {
             top: -10%;
-            left: -5%;
+            left: -10%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, #a855f7 0%, #ec4899 50%, transparent 100%);
+        }
+
+        .blob-2 {
+            bottom: -15%;
+            right: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(236, 72, 153, 0) 70%);
+            background: radial-gradient(circle, #f43f5e 0%, #c084fc 50%, transparent 100%);
+            animation-duration: 28s;
+            animation-direction: reverse;
         }
 
-        .glow-2 {
-            bottom: -10%;
-            right: -5%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, rgba(139, 92, 246, 0) 70%);
-            animation-delay: -5s;
+        @keyframes rotateAurora {
+            0% { transform: rotate(0deg) translate(0, 0) scale(1); }
+            50% { transform: rotate(180deg) translate(30px, 20px) scale(1.1); }
+            100% { transform: rotate(360deg) translate(0, 0) scale(1); }
         }
 
-        @keyframes pulseGlow {
-            0% { transform: scale(1) translate(0, 0); }
-            100% { transform: scale(1.1) translate(20px, -20px); }
-        }
-
-        .portfolio-container {
-            max-width: 900px;
-            width: 100%;
-            background: var(--card-bg);
+        .top-navbar {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: min(90%, 900px);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--card-border);
-            border-radius: 36px;
-            padding: 50px 45px;
-            box-shadow: 0 30px 60px -12px rgba(139, 92, 246, 0.12);
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 10px 24px;
+            border-radius: 40px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.1);
+            z-index: 1000;
         }
 
-        .profile-section {
-            text-align: center;
-            margin-bottom: 40px;
+        .nav-brand {
+            font-size: 14px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .header-badge {
-            display: inline-flex;
+        .back-home-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 18px;
+            border-radius: 20px;
+            background: rgba(244, 63, 94, 0.1);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
             align-items: center;
             gap: 6px;
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--primary);
-            padding: 6px 16px;
+        }
+
+        .back-home-link:hover {
+            background: var(--pink-accent);
+            color: #ffffff;
+            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
+        }
+
+        .main-wrapper {
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .archive-header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 36px;
+            padding: 40px 35px;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(244, 63, 94, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .archive-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
+            color: var(--pink-accent);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            padding: 6px 18px;
             border-radius: 30px;
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 14px;
-            border: 1px solid rgba(139, 92, 246, 0.2);
         }
 
-        h1 {
-            color: var(--text-main);
+        .archive-header h1 {
             font-size: 30px;
             font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 6px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #831843 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
         }
 
-        .subtitle {
-            font-size: 15px;
+        .archive-header p {
+            font-size: 14.5px;
             color: var(--text-muted);
-            margin-bottom: 24px;
-            font-weight: 400;
+            margin-bottom: 22px;
         }
 
-        .interests-container {
+        .tags-cloud {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px;
         }
 
-        .interest-tag {
+        .tag-pill {
             background: rgba(255, 255, 255, 0.8);
-            color: #475569;
-            padding: 8px 18px;
+            border: 1px solid rgba(244, 63, 94, 0.15);
+            color: var(--text-dark);
+            padding: 7px 18px;
             border-radius: 30px;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 500;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .tag-pill i {
+            color: var(--pink-accent);
+        }
+
+        .tag-pill:hover {
+            transform: translateY(-3px) scale(1.03);
+            background: #ffffff;
+            border-color: var(--pink-accent);
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.15);
+        }
+
+        .showcase-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .showcase-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 32px;
+            box-shadow: 0 20px 45px rgba(244, 63, 94, 0.06);
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 28px;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 30px 60px rgba(168, 85, 247, 0.15);
+            border-color: rgba(236, 72, 153, 0.4);
+        }
+
+        .cert-frame {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border: 3px solid #ffffff;
+            aspect-ratio: 4 / 3;
+            background-color: #f1f5f9;
+            cursor: pointer;
+        }
+
+        .cert-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cert-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 27, 75, 0.4);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            gap: 8px;
+        }
+
+        .cert-frame:hover .cert-img {
+            transform: scale(1.08);
+        }
+
+        .cert-frame:hover .cert-overlay {
+            opacity: 1;
+        }
+
+        .card-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-tag {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-        }
-
-        .interest-tag:hover {
-            background: #ffffff;
-            color: var(--primary);
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(139, 92, 246, 0.12);
-        }
-
-        .section-title {
-            font-size: 20px;
-            color: var(--text-main);
-            margin: 45px 0 25px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            align-self: flex-start;
+            font-size: 12px;
             font-weight: 700;
-            position: relative;
-            padding-bottom: 12px;
+            color: var(--purple-glow);
+            background: rgba(168, 85, 247, 0.12);
+            padding: 4px 14px;
+            border-radius: 20px;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary) 0%, rgba(236, 72, 153, 0.3) 50%, transparent 100%);
-            border-radius: 2px;
+        .card-details h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.4;
         }
 
-        .section-title i {
-            color: #ffffff;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 8px;
-            border-radius: 12px;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        .card-details p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.7;
         }
 
-        .project-card {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(241, 245, 249, 1);
-            border-radius: 26px;
-            padding: 30px;
-            margin-bottom: 28px;
-            text-align: left;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            background: #ffffff;
-            border-color: rgba(236, 72, 153, 0.3);
-            box-shadow: 0 20px 40px -10px rgba(139, 92, 246, 0.15);
-        }
-
-        .project-img-wrapper {
-            position: relative;
-            border-radius: 18px;
-            overflow: hidden;
-            margin-bottom: 22px;
-            background-color: #f1f5f9;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        .project-img {
-            width: 100%;
-            height: auto;
-            max-height: 480px;
-            object-fit: contain;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover .project-img {
-            transform: scale(1.02);
-        }
-
-        .project-header {
+        .detail-item {
             display: flex;
             align-items: flex-start;
-            gap: 14px;
-            margin-bottom: 12px;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 12px 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            margin-top: 4px;
         }
 
-        .project-number {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 700;
-            width: 32px;
-            height: 32px;
+        .detail-item i {
+            color: var(--rose-primary);
+            margin-top: 3px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+            transition: background 0.3s ease;
         }
 
-        .project-card h3 {
-            color: var(--text-main);
-            font-size: 18px;
-            font-weight: 600;
-            line-height: 1.5;
+        .close-modal:hover {
+            background: var(--rose-primary);
         }
 
-        .project-card p {
-            color: var(--text-muted);
-            font-size: 14.5px;
-            line-height: 1.7;
-            padding-left: 46px;
-        }
-
-        .btn-group {
+        .action-footer {
             display: flex;
             justify-content: center;
-            margin-top: 35px;
-            width: 100%;
+            margin-top: 10px;
         }
 
-        .btn {
-            position: relative;
+        .btn-sparkle-back {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            gap: 12px;
+            background: linear-gradient(135deg, var(--purple-glow), var(--pink-accent));
             color: white;
-            padding: 15px 40px;
-            text-decoration: none;
+            padding: 16px 42px;
             border-radius: 50px;
-            font-weight: 600;
             font-size: 15px;
-            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.25);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-            transition: left 0.6s ease;
+        .btn-sparkle-back:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(244, 63, 94, 0.35);
         }
 
-        .btn i {
+        .btn-sparkle-back i {
             transition: transform 0.3s ease;
         }
 
-        .btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 32px rgba(236, 72, 153, 0.4);
+        .btn-sparkle-back:hover i {
+            transform: translateX(-6px);
         }
 
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:hover i {
-            transform: translateX(-5px);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
             body {
-                padding: 30px 15px;
+                padding-top: 85px;
             }
 
-            .portfolio-container {
+            .showcase-card {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 24px;
+            }
+
+            .top-navbar {
+                width: 92%;
+                padding: 8px 16px;
+            }
+
+            .archive-header {
                 padding: 30px 20px;
-                border-radius: 28px;
             }
 
-            .project-card {
-                padding: 20px;
-                border-radius: 20px;
-            }
-
-            .project-card p {
-                padding-left: 0;
-                margin-top: 10px;
-            }
-
-            h1 {
+            .archive-header h1 {
                 font-size: 24px;
-            }
-
-            .section-title {
-                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow glow-1"></div>
-    <div class="bg-glow glow-2"></div>
+    <div class="aurora-bg">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+    </div>
 
-    <div class="portfolio-container">
+    <header class="top-navbar">
+        <div class="nav-brand">
+            <i class="fa-solid fa-sparkles"></i> Portfolio Archive
+        </div>
+        <a href="index.html" class="back-home-link">
+            <i class="fa-solid fa-arrow-left"></i> กลับหน้าแรก
+        </a>
+    </header>
+
+    <div class="main-wrapper">
         
-        <div class="profile-section">
-            <div class="header-badge">
-                <i class="fa-solid fa-folder-open"></i> Portfolio Archive
+        <section class="archive-header">
+            <div class="archive-badge">
+                <i class="fa-solid fa-trophy"></i> Activities & Achievements
             </div>
-            <h1>นางสาวศรัญญา แม้นแก้ว</h1>
-            <p class="subtitle">แฟ้มสะสมผลงาน กิจกรรมวิชาการ และการฝึกประสบการณ์</p>
-            
-            <div class="interests-container">
-                <span class="interest-tag"><i class="fa-solid fa-calculator"></i> คณิตศาสตร์</span>
-                <span class="interest-tag"><i class="fa-solid fa-flask"></i> วิทยาศาสตร์และเทคโนโลยี</span>
-                <span class="interest-tag"><i class="fa-solid fa-gear"></i> วิศวกรรมอุตสาหการ</span>
-                <span class="interest-tag"><i class="fa-solid fa-chart-pie"></i> การบริหารจัดการระบบ</span>
+            <h1>ผลงานและกิจกรรมการเรียนรู้</h1>
+            <p>ประวัติการเข้าร่วมกิจกรรมวิชาการ การเปิดบ้านนวัตกรรม และการฝึกประสบการณ์เตรียมความพร้อม</p>
+
+            <div class="tags-cloud">
+                <span class="tag-pill"><i class="fa-solid fa-calculator"></i> คณิตศาสตร์</span>
+                <span class="tag-pill"><i class="fa-solid fa-flask"></i> วิทยาศาสตร์และเทคโนโลยี</span>
+                <span class="tag-pill"><i class="fa-solid fa-gear"></i> วิศวกรรมอุตสาหการ</span>
+                <span class="tag-pill"><i class="fa-solid fa-chart-pie"></i> การบริหารจัดการระบบ</span>
             </div>
+        </section>
+
+         <div class="showcase-grid">
+
+            <article class="showcase-card">
+                <div class="cert-frame" onclick="openModal('47F25AEF-EE5C-41C5-806C-11C6F1355588.png')">
+                    <img src="47F25AEF-EE5C-41C5-806C-11C6F1355588.png" alt="KMITL Open House Certificate" class="cert-img">
+                    <div class="cert-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อขยายรูป
+                    </div>
+                </div>
+
+                <div class="card-details">
+                    <span class="card-tag">
+                        <i class="fa-solid fa-award"></i> Open House & Academic Event
+                    </span>
+                    <h2>เข้าร่วมกิจกรรมเปิดบ้านวิชาการ KMITL Open House</h2>
+                    <p style="font-weight: 500; color: var(--rose-primary);">สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</p>
+                    
+                    <div class="detail-item">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p><strong>รายละเอียดกิจกรรม :</strong> เข้าร่วมงานเปิดบ้านวิชาการเพื่อเข้าชมการแสดงผลงาน นวัตกรรม และห้องปฏิบัติการจริงของสาขาวิชาวิศวกรรมอุตสาหการ พร้อมร่วมฟังการแนะแนวหลักสูตรและสอบถามประสบการณ์ตรงจากอาจารย์และรุ่นพี่</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="showcase-card">
+                <div class="cert-frame" onclick="openModal('C4EB96E4-4C3E-49F9-97F2-B0E811985FA0.png')">
+                    <img src="C4EB96E4-4C3E-49F9-97F2-B0E811985FA0.png" alt="กิจกรรมบริหารธุรกิจ มหาวิทยาลัยบูรพา" class="cert-img">
+                    <div class="cert-overlay">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อขยายรูป
+                    </div>
+                </div>
+
+                <div class="card-details">
+                    <span class="card-tag">
+                        <i class="fa-solid fa-briefcase"></i> Business Management Workshop
+                    </span>
+                    <h2>เข้าร่วมกิจกรรมวิชาการด้านการบริหารธุรกิจ</h2>
+                    <p style="font-weight: 500; color: var(--rose-primary);">มหาวิทยาลัยบูรพา</p>
+
+                    <div class="detail-item">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p><strong>รายละเอียดกิจกรรม :</strong> เข้าร่วมโครงการเปิดบ้าน/แข่งขันวิชาการด้านการบริหารธุรกิจ ณ มหาวิทยาลัยบูรพา เพื่อเรียนรู้กระบวนการวางแผนเชิงยุทธศาสตร์ การบริหารจัดการทรัพยากร การวิเคราะห์ตลาด และระบบการดำเนินงานในองค์กร</p>
+                    </div>
+                </div>
+            </article>
+
         </div>
 
-        <h2 class="section-title">
-            <i class="fa-solid fa-trophy"></i> ผลงานและกิจกรรม (Projects & Activities)
-        </h2>
-
-        <div class="project-card">
-            <div class="project-img-wrapper">
-                <img src="47F25AEF-EE5C-41C5-806C-11C6F1355588.png" alt="เกียรติบัตรเข้าร่วมงาน KMITL Open House สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง" class="project-img">
-            </div>
-            <div class="project-header">
-                <span class="project-number">1</span>
-                <h3>เข้าร่วมกิจกรรมเปิดบ้านวิชาการ KMITL Open House (สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง)</h3>
-            </div>
-            <p><strong>รายละเอียดกิจกรรม :</strong> เข้าร่วมงานเปิดบ้านวิชาการเพื่อเข้าชมการแสดงผลงาน นวัตกรรม และห้องปฏิบัติการจริงของสาขาวิชาวิศวกรรมอุตสาหการ พร้อมทั้งร่วมฟังการแนะแนวหลักสูตรและสอบถามประสบการณ์ตรงจากอาจารย์ประจำสาขาและรุ่นพี่นักศึกษา</p>
-        </div>
-
-        <div class="project-card">
-            <div class="project-img-wrapper">
-                <img src="C4EB96E4-4C3E-49F9-97F2-B0E811985FA0.png" alt="เข้าร่วมกิจกรรมบริหารธุรกิจ มหาวิทยาลัยบูรพา" class="project-img">
-            </div>
-            <div class="project-header">
-                <span class="project-number">2</span>
-                <h3>เข้าร่วมกิจกรรมวิชาการด้านการบริหารธุรกิจ (มหาวิทยาลัยบูรพา)</h3>
-            </div>
-            <p><strong>รายละเอียดกิจกรรม :</strong> เข้าร่วมโครงการเปิดบ้าน/แข่งขันวิชาการด้านการบริหารธุรกิจ ณ มหาวิทยาลัยบูรพา เพื่อเรียนรู้กระบวนการวางแผนเชิงยุทธศาสตร์ การบริหารจัดการทรัพยากร การวิเคราะห์ตลาด และระบบการดำเนินงานในองค์กร</p>
-        </div>
-
-         <div class="btn-group">
-            <a href="index.html" class="btn">
-                <i class="fa-solid fa-arrow-left"></i>
-                กลับหน้าแรก
+        <div class="action-footer">
+            <a href="index.html" class="btn-sparkle-back">
+                <i class="fa-solid fa-house"></i>
+                <span>ย้อนกลับไปหน้าแรก (Home)</span>
             </a>
         </div>
 
     </div>
 
+    <div class="modal-overlay" id="imageModal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img src="" alt="Full Certificate View" class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modalImg.src = imageSrc;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+        }
+    </script>
 </body>
 </html>
