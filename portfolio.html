@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ผลงานและกิจกรรม | ศรัญญา แม้นแก้ว</title>
+    <title>แฟ้มสะสมผลงาน | ศรัญญา แม้นแก้ว</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -112,23 +112,23 @@
             gap: 8px;
         }
 
-        .back-home-link {
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-link {
             text-decoration: none;
             color: var(--text-dark);
             font-size: 13px;
             font-weight: 600;
-            padding: 6px 18px;
+            padding: 6px 16px;
             border-radius: 20px;
-            background: rgba(244, 63, 94, 0.1);
-            border: 1px solid rgba(244, 63, 94, 0.2);
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
-        .back-home-link:hover {
-            background: var(--pink-accent);
+        .nav-link.active, .nav-link:hover {
+            background: linear-gradient(135deg, var(--rose-primary), var(--pink-accent));
             color: #ffffff;
             box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
         }
@@ -141,88 +141,95 @@
             gap: 32px;
         }
 
-        .archive-header {
+        .hero-card {
             background: var(--glass-bg);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             border: 1px solid var(--glass-border);
             border-radius: 36px;
-            padding: 40px 35px;
-            text-align: center;
+            padding: 40px;
             box-shadow: 0 30px 60px rgba(244, 63, 94, 0.08);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 36px;
+            align-items: center;
             position: relative;
             overflow: hidden;
         }
 
-        .archive-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
-            color: var(--pink-accent);
-            border: 1px solid rgba(236, 72, 153, 0.3);
-            padding: 6px 18px;
+        .profile-avatar-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
             border-radius: 30px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 14px;
+            padding: 6px;
+            background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.25);
         }
 
-        .archive-header h1 {
-            font-size: 30px;
+        .profile-avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+            background-color: #fff;
+        }
+
+        .hero-details h1 {
+            font-size: 32px;
             font-weight: 700;
             background: linear-gradient(135deg, #1e1b4b 0%, #831843 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .archive-header p {
-            font-size: 14.5px;
-            color: var(--text-muted);
-            margin-bottom: 22px;
-        }
-
-        .tags-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .tag-pill {
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(244, 63, 94, 0.15);
-            color: var(--text-dark);
-            padding: 7px 18px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 500;
+        .hero-subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--pink-accent);
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .tag-pill i {
-            color: var(--pink-accent);
+        .hero-bio {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
         }
 
-        .tag-pill:hover {
-            transform: translateY(-3px) scale(1.03);
-            background: #ffffff;
-            border-color: var(--pink-accent);
-            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.15);
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
         }
 
-        .showcase-grid {
+        .info-chip {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            padding: 10px 16px;
+            border-radius: 18px;
             display: flex;
-            flex-direction: column;
-            gap: 32px;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
         }
 
-        .showcase-card {
+        .info-chip i {
+            color: var(--rose-primary);
+            font-size: 16px;
+        }
+
+        .info-chip span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        .content-section {
             background: var(--glass-bg);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
@@ -230,199 +237,97 @@
             border-radius: 32px;
             padding: 32px;
             box-shadow: 0 20px 45px rgba(244, 63, 94, 0.06);
-            display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            gap: 28px;
+        }
+
+        .section-header {
+            display: flex;
             align-items: center;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
-        .showcase-card:hover {
-            transform: translateY(-6px);
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 30px 60px rgba(168, 85, 247, 0.15);
-            border-color: rgba(236, 72, 153, 0.4);
-        }
-
-        .cert-frame {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            border: 3px solid #ffffff;
-            aspect-ratio: 4 / 3;
-            background-color: #f1f5f9;
-            cursor: pointer;
-        }
-
-        .cert-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .cert-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(30, 27, 75, 0.4);
-            backdrop-filter: blur(4px);
+        .section-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            color: white;
-            font-size: 14px;
-            font-weight: 600;
-            gap: 8px;
-        }
-
-        .cert-frame:hover .cert-img {
-            transform: scale(1.08);
-        }
-
-        .cert-frame:hover .cert-overlay {
-            opacity: 1;
-        }
-
-        .card-details {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .card-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            align-self: flex-start;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--purple-glow);
-            background: rgba(168, 85, 247, 0.12);
-            padding: 4px 14px;
-            border-radius: 20px;
-        }
-
-        .card-details h2 {
             font-size: 18px;
+            box-shadow: 0 8px 20px rgba(244, 63, 94, 0.25);
+        }
+
+        .section-title {
+            font-size: 20px;
             font-weight: 700;
             color: var(--text-dark);
-            line-height: 1.4;
         }
 
-        .card-details p {
-            font-size: 13.5px;
-            color: var(--text-muted);
-            line-height: 1.7;
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
         }
 
-        .detail-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
+        .feature-card {
             background: rgba(255, 255, 255, 0.6);
-            padding: 12px 16px;
-            border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.8);
-            margin-top: 4px;
-        }
-
-        .detail-item i {
-            color: var(--rose-primary);
-            margin-top: 3px;
-        }
-
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(15px);
-            z-index: 2000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-content {
-            max-width: 90vw;
-            max-height: 85vh;
             border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
+            padding: 20px;
+            transition: all 0.3s ease;
         }
 
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
+        .feature-card:hover {
+            transform: translateY(-4px);
+            background: #ffffff;
+            box-shadow: 0 12px 25px rgba(236, 72, 153, 0.12);
         }
 
-        .close-modal {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
+        .feature-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .action-callout {
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.1), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            border-radius: 28px;
+            padding: 28px;
+            text-align: center;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
+            gap: 16px;
         }
 
-        .close-modal:hover {
-            background: var(--rose-primary);
-        }
-
-        .action-footer {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .btn-sparkle-back {
+        .btn-sparkle {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: linear-gradient(135deg, var(--purple-glow), var(--pink-accent));
+            gap: 10px;
+            background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
             color: white;
-            padding: 16px 42px;
+            padding: 14px 36px;
             border-radius: 50px;
             font-size: 15px;
             font-weight: 600;
             text-decoration: none;
-            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.25);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 12px 30px rgba(244, 63, 94, 0.25);
+            transition: all 0.3s ease;
         }
 
-        .btn-sparkle-back:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 20px 45px rgba(244, 63, 94, 0.35);
-        }
-
-        .btn-sparkle-back i {
-            transition: transform 0.3s ease;
-        }
-
-        .btn-sparkle-back:hover i {
-            transform: translateX(-6px);
+        .btn-sparkle:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 18px 40px rgba(168, 85, 247, 0.35);
         }
 
         @media (max-width: 768px) {
@@ -430,10 +335,19 @@
                 padding-top: 85px;
             }
 
-            .showcase-card {
+            .hero-card {
                 grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 24px;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .profile-avatar-wrapper {
+                width: 180px;
+                margin: 0 auto;
+            }
+
+            .hero-subtitle {
+                justify-content: center;
             }
 
             .top-navbar {
@@ -441,12 +355,8 @@
                 padding: 8px 16px;
             }
 
-            .archive-header {
-                padding: 30px 20px;
-            }
-
-            .archive-header h1 {
-                font-size: 24px;
+            .content-section {
+                padding: 24px;
             }
         }
     </style>
@@ -460,105 +370,87 @@
 
     <header class="top-navbar">
         <div class="nav-brand">
-            <i class="fa-solid fa-sparkles"></i> Portfolio Archive
+            <i class="fa-solid fa-sparkles"></i> Saranya's Portfolio
         </div>
-        <a href="index.html" class="back-home-link">
-            <i class="fa-solid fa-arrow-left"></i> กลับหน้าแรก
-        </a>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link active">หน้าแรก</a>
+            <a href="archive.html" class="nav-link">ผลงาน & กิจกรรม</a>
+        </nav>
     </header>
 
-    <div class="main-wrapper">
+    <main class="main-wrapper">
         
-        <section class="archive-header">
-            <div class="archive-badge">
-                <i class="fa-solid fa-trophy"></i> Activities & Achievements
+        <section class="hero-card">
+            <div class="profile-avatar-wrapper">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="ศรัญญา แม้นแก้ว" class="profile-avatar-img">
             </div>
-            <h1>ผลงานและกิจกรรมการเรียนรู้</h1>
-            <p>ประวัติการศึกษาค้นคว้าด้วยตนเอง และการเข้าร่วมการแข่งขันทางวิชาการ</p>
 
-            <div class="tags-cloud">
-                <span class="tag-pill"><i class="fa-solid fa-graduation-cap"></i> CHULA MOOC</span>
-                <span class="tag-pill"><i class="fa-solid fa-flask-vial"></i> เคมีและพอลิเมอร์</span>
-                <span class="tag-pill"><i class="fa-solid fa-trophy"></i> การแข่งขันวิชาการ</span>
-                <span class="tag-pill"><i class="fa-solid fa-people-group"></i> การทำงานเป็นทีม</span>
+            <div class="hero-details">
+                <h1>ศรัญญา แม้นแก้ว</h1>
+                <div class="hero-subtitle">
+                    <i class="fa-solid fa-graduation-cap"></i> นักเรียน / นักศึกษาผู้หลงใหลในวิทยาศาสตร์
+                </div>
+                <p class="hero-bio">
+                    มุ่งมั่นพัฒนาตนเองผ่านการเรียนรู้ทั้งในและนอกห้องเรียน มีความสนใจเป็นพิเศษด้านวิทยาศาสตร์ เคมีวัสดุ พอลิเมอร์ และการทำกิจกรรมร่วมกับผู้อื่น
+                </p>
+
+                <div class="info-grid">
+                    <div class="info-chip">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <span>อีเมลติดต่อ</span>
+                            <strong>saranya@example.com</strong>
+                        </div>
+                    </div>
+                    <div class="info-chip">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <span>ที่อยู่ / สถาบัน</span>
+                            <strong>ประเทศไทย</strong>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <div class="showcase-grid">
+        <section class="content-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h2 class="section-title">จุดเด่นและความสนใจหลัก</h2>
+            </div>
 
-            <article class="showcase-card">
-                <div class="cert-frame" onclick="openModal('S__51077125.jpg')">
-                    <img src="S__51077125.jpg" alt="เกียรติบัตร CHULA MOOC พอลิเมอร์" class="cert-img">
-                    <div class="cert-overlay">
-                        <i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อขยายรูป
-                    </div>
+            <div class="card-grid">
+                <div class="feature-card">
+                    <h3><i class="fa-solid fa-flask" style="color: var(--pink-accent);"></i> ด้านวิทยาศาสตร์ & เคมี</h3>
+                    <p>ศึกษาโครงสร้าง สมบัติ และเทคโนโลยีการสังเคราะห์วัสดุพอลิเมอร์อย่างลึกซึ้งผ่านคอร์สเรียนพิเศษ CHULA MOOC</p>
                 </div>
 
-                <div class="card-details">
-                    <span class="card-tag">
-                        <i class="fa-solid fa-certificate"></i> Online Learning & Upskill
-                    </span>
-                    <h2>ผ่านการเรียนรู้หลักสูตรออนไลน์ CHULA MOOC เรื่องพอลิเมอร์</h2>
-                    <p style="font-weight: 500; color: var(--rose-primary);">จุฬาลงกรณ์มหาวิทยาลัย</p>
-                    
-                    <div class="detail-item">
-                        <i class="fa-solid fa-circle-info"></i>
-                        <p><strong>รายละเอียดกิจกรรม :</strong> ศึกษาเรียนรู้ระบบออนไลน์ด้วยตนเองในรายวิชาที่เกี่ยวข้องกับโครงสร้าง สมบัติ การสังเคราะห์ และการประยุกต์ใช้งานวัสดุพอลิเมอร์ในอุตสาหกรรม สะท้อนถึงความมุ่งมั่นในการแสวงหาความรู้เพิ่มเติมทางด้านวิทยาศาสตร์และเทคโนโลยีวัสดุอย่างต่อเนื่อง</p>
-                    </div>
-                </div>
-            </article>
-
-            <article class="showcase-card">
-                <div class="cert-frame" onclick="openModal('S__51077124.jpg')">
-                    <img src="S__51077124.jpg" alt="เกียรติบัตรการแข่งขันตอบคำถามวิทยาศาสตร์" class="cert-img">
-                    <div class="cert-overlay">
-                        <i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อขยายรูป
-                    </div>
+                <div class="feature-card">
+                    <h3><i class="fa-solid fa-trophy" style="color: var(--purple-glow);"></i> ทักษะการแข่งขัน</h3>
+                    <p>มีประสบการณ์แข่งขันตอบคำถามทางวิชาการ การวิเคราะห์โจทย์เฉพาะหน้า และการทำงานร่วมกันเป็นทีม</p>
                 </div>
 
-                <div class="card-details">
-                    <span class="card-tag">
-                        <i class="fa-solid fa-medal"></i> Academic Competition
-                    </span>
-                    <h2>ได้รับรางวัลรองชนะเลิศอันดับ 1 การแข่งขันตอบคำถามวิทยาศาสตร์ (ประเภททีม)</h2>
-                    <p style="font-weight: 500; color: var(--rose-primary);">การแข่งขันระดับสถาบัน/เขตพื้นที่</p>
-
-                    <div class="detail-item">
-                        <i class="fa-solid fa-circle-info"></i>
-                        <p><strong>รายละเอียดกิจกรรม :</strong> เป็นตัวแทนเข้าร่วมการแข่งขันตอบปัญหาและทบทวนองค์ความรู้ทางวิทยาศาสตร์รูปแบบทีม ได้ฝึกทักษะการวิเคราะห์โจทย์ การวางแผนแก้ปัญหาเฉพาะหน้าร่วมกับผู้อื่น และการดึงความรู้ทางวิทยาศาสตร์มาประยุกต์ใช้ในการแข่งขัน</p>
-                    </div>
+                <div class="feature-card">
+                    <h3><i class="fa-solid fa-lightbulb" style="color: var(--rose-primary);"></i> การเรียนรู้ต่อเนื่อง</h3>
+                    <p>พร้อมเปิดรับทักษะใหม่ๆ (Upskill & Reskill) เสมอ เพื่อประยุกต์ใช้ในเป้าหมายการศึกษาและการทำงานอนาคต</p>
                 </div>
-            </article>
+            </div>
+        </section>
 
-        </div>
-
-        <!-- Back to Home Button -->
-        <div class="action-footer">
-            <a href="index.html" class="btn-sparkle-back">
-                <i class="fa-solid fa-house"></i>
-                <span>ย้อนกลับไปหน้าแรก (Home)</span>
+        <section class="action-callout">
+            <h3 style="font-size: 18px; color: var(--text-dark);">ต้องการดูรายละเอียดผลงานและใบประกาศนียบัตร?</h3>
+            <p style="font-size: 14px; color: var(--text-muted); max-width: 500px;">
+                รับชมคลังเกียรติบัตร CHULA MOOC การแข่งขันตอบปัญหาวิทยาศาสตร์ และรูปภาพกิจกรรมย่อได้เลยที่นี่
+            </p>
+            <a href="archive.html" class="btn-sparkle">
+                <span>เข้าชมผลงานและกิจกรรมทั้งหมด</span>
+                <i class="fa-solid fa-arrow-right"></i>
             </a>
-        </div>
+        </section>
 
-    </div>
+    </main>
 
-    <div class="modal-overlay" id="imageModal" onclick="closeModal()">
-        <span class="close-modal">&times;</span>
-        <img src="" alt="Full Certificate View" class="modal-content" id="modalImg">
-    </div>
-
-    <script>
-        function openModal(imageSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImg');
-            modalImg.src = imageSrc;
-            modal.classList.add('active');
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.classList.remove('active');
-        }
-    </script>
 </body>
 </html>
