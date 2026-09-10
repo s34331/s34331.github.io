@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ศรัญญา แม้นแก้ว | Personal Portfolio</title>
+    <title>ศรัญญา แม้นแก้ว | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
             --rose-primary: #f43f5e;
@@ -19,12 +18,7 @@
             --text-muted: #64748b;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
         body {
             font-family: 'Prompt', sans-serif;
@@ -40,50 +34,18 @@
         }
 
         .aurora-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1; overflow: hidden; pointer-events: none;
         }
 
         .aurora-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.6;
+            position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.6;
             animation: rotateAurora 20s infinite linear;
         }
 
-        .blob-1 {
-            top: -10%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, #f43f5e 0%, #ec4899 50%, transparent 100%);
-        }
-
-        .blob-2 {
-            bottom: -15%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, #c084fc 0%, #a855f7 50%, transparent 100%);
-            animation-duration: 25s;
-            animation-direction: reverse;
-        }
-
-        .blob-3 {
-            top: 40%;
-            left: 30%;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, #fbcfe8 0%, #f472b6 50%, transparent 100%);
-            opacity: 0.4;
-        }
+        .blob-1 { top: -10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, #f43f5e 0%, #ec4899 50%, transparent 100%); }
+        .blob-2 { bottom: -15%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, #c084fc 0%, #a855f7 50%, transparent 100%); animation-duration: 25s; animation-direction: reverse; }
+        .blob-3 { top: 40%; left: 30%; width: 350px; height: 350px; background: radial-gradient(circle, #fbcfe8 0%, #f472b6 50%, transparent 100%); opacity: 0.4; }
 
         @keyframes rotateAurora {
             0% { transform: rotate(0deg) scale(1) translate(0, 0); }
@@ -92,97 +54,46 @@
         }
 
         .navbar {
-            position: fixed;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            padding: 8px 12px;
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.12);
-            z-index: 1000;
+            position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 8px; background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            padding: 8px 12px; border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.12); z-index: 1000;
         }
 
         .nav-link {
-            text-decoration: none;
-            color: var(--text-muted);
-            font-size: 13.5px;
-            font-weight: 500;
-            padding: 8px 22px;
-            border-radius: 30px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            text-decoration: none; color: var(--text-muted); font-size: 13.5px; font-weight: 500;
+            padding: 8px 22px; border-radius: 30px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; align-items: center; gap: 8px;
         }
 
-        .nav-link:hover {
-            color: var(--pink-accent);
-        }
-
+        .nav-link:hover { color: var(--pink-accent); }
         .nav-link.active {
             background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
-            color: #ffffff;
-            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+            color: #ffffff; box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
         }
 
-        .main-wrapper {
-            max-width: 900px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
+        .main-wrapper { max-width: 900px; width: 100%; display: flex; flex-direction: column; gap: 30px; }
 
         .hero-section {
-            background: var(--glass-bg);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border);
-            border-radius: 36px;
-            padding: 45px;
-            box-shadow: 0 30px 60px rgba(244, 63, 94, 0.08);
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            align-items: center;
-            gap: 30px;
-            position: relative;
-            overflow: hidden;
-            scroll-margin-top: 120px;
+            background: var(--glass-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border); border-radius: 36px; padding: 45px;
+            box-shadow: 0 30px 60px rgba(244, 63, 94, 0.08); display: grid;
+            grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 30px;
         }
 
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
+        .hero-content { display: flex; flex-direction: column; align-items: flex-start; }
 
         .badge-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            display: inline-flex; align-items: center; gap: 8px;
             background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
-            color: var(--pink-accent);
-            border: 1px solid rgba(236, 72, 153, 0.3);
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 18px;
+            color: var(--pink-accent); border: 1px solid rgba(236, 72, 153, 0.3);
+            padding: 6px 18px; border-radius: 30px; font-size: 13px; font-weight: 600; margin-bottom: 18px;
         }
 
         .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--rose-primary);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--rose-primary);
-            animation: pulse 2s infinite;
+            width: 8px; height: 8px; background-color: var(--rose-primary); border-radius: 50%;
+            box-shadow: 0 0 12px var(--rose-primary); animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
@@ -192,289 +103,53 @@
         }
 
         h1 {
-            font-size: 36px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #1e1b4b 0%, #831843 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-            margin-bottom: 6px;
+            font-size: 36px; font-weight: 700; background: linear-gradient(135deg, #1e1b4b 0%, #831843 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; margin-bottom: 6px;
         }
 
-        .english-name {
-            font-size: 16px;
-            color: var(--pink-accent);
-            font-weight: 500;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
+        .english-name { font-size: 16px; color: var(--pink-accent); font-weight: 500; letter-spacing: 1px; margin-bottom: 20px; }
+        .hero-desc { font-size: 14.5px; color: var(--text-muted); line-height: 1.7; margin-bottom: 25px; }
 
-        .hero-desc {
-            font-size: 14.5px;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        .profile-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        .profile-container { position: relative; display: flex; justify-content: center; align-items: center; }
 
         .profile-ring {
-            position: absolute;
-            width: 210px;
-            height: 210px;
+            position: absolute; width: 210px; height: 210px;
             border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
             background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
-            animation: morphBlob 10s infinite alternate ease-in-out;
-            opacity: 0.8;
-            filter: blur(10px);
+            animation: morphBlob 10s infinite alternate ease-in-out; opacity: 0.8; filter: blur(10px);
         }
 
         .profile-box {
-            position: relative;
-            width: 180px;
-            height: 220px;
-            border-radius: 28px;
-            overflow: hidden;
-            border: 4px solid #ffffff;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            z-index: 2;
+            position: relative; width: 180px; height: 220px; border-radius: 28px;
+            overflow: hidden; border: 4px solid #ffffff; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); z-index: 2;
         }
 
-        .profile-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .profile-box img { width: 100%; height: 100%; object-fit: cover; }
 
         @keyframes morphBlob {
             0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
             100% { border-radius: 70% 30% 46% 54% / 30% 60% 40% 70%; }
         }
 
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .section-header i {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
-            color: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            box-shadow: 0 8px 18px rgba(236, 72, 153, 0.3);
-        }
-
-        .section-header h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        .edu-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 22px 18px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .edu-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--pink-accent), var(--purple-glow));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .edu-card:hover {
-            transform: translateY(-6px);
-            background: #ffffff;
-            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.1);
-        }
-
-        .edu-card:hover::before {
-            opacity: 1;
-        }
-
-        .edu-icon {
-            font-size: 24px;
-            color: var(--pink-accent);
-            margin-bottom: 10px;
-        }
-
-        .edu-label {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-bottom: 4px;
-            font-weight: 500;
-        }
-
-        .edu-val {
-            font-size: 14.5px;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .goals-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .goal-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            border-radius: 28px;
-            padding: 28px;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .goal-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 25px 45px rgba(168, 85, 247, 0.12);
-        }
-
-        .goal-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-            font-weight: 700;
-            color: #831843;
-        }
-
-        .goal-title i {
-            color: var(--purple-glow);
-        }
-
-        .goal-card p {
-            font-size: 13.5px;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        .highlight-text {
-            color: var(--rose-primary);
-            font-weight: 600;
-        }
-
-        .btn-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
+        .btn-wrapper { display: flex; gap: 15px; margin-top: 10px; flex-wrap: wrap; }
 
         .btn-sparkle {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
-            color: white;
-            padding: 18px 45px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 15px 35px rgba(244, 63, 94, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; display: inline-flex; align-items: center; justify-content: center;
+            gap: 10px; background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
+            color: white; padding: 14px 28px; border-radius: 50px; font-size: 14.5px; font-weight: 600;
+            text-decoration: none; box-shadow: 0 15px 35px rgba(244, 63, 94, 0.3); transition: all 0.4s ease;
             overflow: hidden;
         }
 
-        .btn-sparkle::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
-            transform: rotate(30deg);
-            transition: transform 0.8s ease;
-        }
-
-        .btn-sparkle:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 20px 45px rgba(236, 72, 153, 0.45);
-        }
-
-        .btn-sparkle:hover::after {
-            transform: rotate(30deg) translate(20%, 20%);
-        }
-
-        .btn-sparkle i {
-            transition: transform 0.3s ease;
-        }
-
-        .btn-sparkle:hover i {
-            transform: translateX(6px);
-        }
+        .btn-sparkle:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 45px rgba(236, 72, 153, 0.45); }
 
         @media (max-width: 768px) {
-            .hero-section {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 35px 25px;
-            }
-
-            .hero-content {
-                align-items: center;
-            }
-
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .goals-container {
-                grid-template-columns: 1fr;
-            }
-
-            .navbar {
-                width: 90%;
-                justify-content: space-around;
-            }
-
-            .nav-link {
-                padding: 8px 12px;
-                font-size: 12px;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
+            .hero-section { grid-template-columns: 1fr; text-align: center; padding: 35px 25px; }
+            .hero-content { align-items: center; }
+            .navbar { width: 92%; justify-content: space-around; }
+            .nav-link { padding: 8px 10px; font-size: 11.5px; }
+            h1 { font-size: 28px; }
+            .btn-wrapper { justify-content: center; }
         }
     </style>
 </head>
@@ -487,14 +162,14 @@
     </div>
 
     <nav class="navbar">
-        <a href="#home" class="nav-link active"><i class="fa-solid fa-wand-magic-sparkles"></i> ต้อนรับ</a>
-        <a href="#about" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> การศึกษา</a>
-        <a href="#goals" class="nav-link"><i class="fa-solid fa-compass"></i> แรงบันดาลใจ</a>
+        <a href="index.html" class="nav-link active"><i class="fa-solid fa-house"></i> หน้าแรก</a>
+        <a href="personal.html" class="nav-link"><i class="fa-solid fa-user"></i> ประวัติส่วนตัว</a>
+        <a href="expectation.html" class="nav-link"><i class="fa-solid fa-compass"></i> แรงบันดาลใจ</a>
+        <a href="portfolio.html" class="nav-link"><i class="fa-solid fa-briefcase"></i> ผลงาน</a>
     </nav>
 
     <div class="main-wrapper">
-        
-        <section id="home" class="hero-section">
+        <section class="hero-section">
             <div class="hero-content">
                 <div class="badge-pill">
                     <span class="pulse-dot"></span> มุ่งมั่นพัฒนาศักยภาพยุคใหม่
@@ -504,6 +179,12 @@
                 <p class="hero-desc">
                     ยินดีต้อนรับสู่พื้นที่แสดงตัวตน ประวัติการเรียนรู้ และเส้นทางความฝัน มุ่งสู่การเป็นนักศึกษาวิศวกรรมศาสตร์อย่างภาคภูมิใจ
                 </p>
+                <div class="btn-wrapper">
+                    <a href="personal.html" class="btn-sparkle">
+                        <span>ทำความรู้จักเพิ่มเติม</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
 
             <div class="profile-container">
@@ -513,92 +194,7 @@
                 </div>
             </div>
         </section>
-
-         <section id="about">
-            <div class="section-header">
-                <i class="fa-solid fa-landmark"></i>
-                <h2>ประวัติการศึกษา (Education)</h2>
-            </div>
-
-            <div class="education-grid">
-                <div class="edu-card">
-                    <i class="fa-solid fa-school edu-icon"></i>
-                    <div class="edu-label">สถานศึกษา</div>
-                    <div class="edu-val">บ้านบึง "อุตสาหกรรมนุเคราะห์"</div>
-                </div>
-
-                <div class="edu-card">
-                    <i class="fa-solid fa-user-graduate edu-icon"></i>
-                    <div class="edu-label">ระดับการศึกษา</div>
-                    <div class="edu-val">มัธยมศึกษาปีที่ 6</div>
-                </div>
-
-                <div class="edu-card">
-                    <i class="fa-solid fa-microscope edu-icon"></i>
-                    <div class="edu-label">สายการเรียน</div>
-                    <div class="edu-val">วิทยาศาสตร์ - คณิตศาสตร์</div>
-                </div>
-            </div>
-        </section>
-
-         <section id="goals">
-            <div class="section-header">
-                <i class="fa-solid fa-heart-pulse"></i>
-                <h2>แรงบันดาลใจและเป้าหมาย (Inspiration)</h2>
-            </div>
-
-            <div class="goals-container">
-                <div class="goal-card">
-                    <div class="goal-title">
-                        <i class="fa-solid fa-bullseye"></i>
-                        เป้าหมายทางการศึกษา
-                    </div>
-                    <p>
-                        ตั้งใจเข้าศึกษาต่อใน <span class="highlight-text">คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการ (Industrial Engineering)</span> เพื่อประยุกต์ใช้เทคโนโลยีและการจัดการระบบอย่างสมบูรณ์แบบ
-                    </p>
-                </div>
-
-                <div class="goal-card">
-                    <div class="goal-title">
-                        <i class="fa-solid fa-lightbulb"></i>
-                        ความสนใจและทักษะ
-                    </div>
-                    <p>
-                        มีความหลงใหลใน <span class="highlight-text">การคิดเชิงระบบ (Systems Thinking)</span> การวางแผนกระบวนการผลิต และการเพิ่มประสิทธิภาพการทำงานด้วย Smart Technology
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <div class="btn-wrapper">
-            <a href="portfolio.html" class="btn-sparkle">
-                <span>เข้าชมแฟ้มสะสมผลงาน (Portfolio)</span>
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-        </div>
-
     </div>
 
-    <script>
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.pageYOffset >= (sectionTop - 180)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
 </body>
 </html>
