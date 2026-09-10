@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติส่วนตัว | ศรัญญา แม้นแก้ว</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --rose-primary: #f43f5e;
+            --pink-accent: #ec4899;
+            --purple-glow: #a855f7;
+            --soft-bg: #fdf4f8;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.9);
+            --text-dark: #1e1b4b;
+            --text-muted: #64748b;
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Prompt', sans-serif; background-color: var(--soft-bg);
+            color: var(--text-dark); min-height: 100vh; padding: 100px 20px 60px;
+            display: flex; justify-content: center; align-items: center; position: relative; overflow-x: hidden;
+        }
+
+        .aurora-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; overflow: hidden; pointer-events: none; }
+        .aurora-blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.6; animation: rotateAurora 20s infinite linear; }
+        .blob-1 { top: -10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, #f43f5e 0%, #ec4899 50%, transparent 100%); }
+        .blob-2 { bottom: -15%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, #c084fc 0%, #a855f7 50%, transparent 100%); animation-duration: 25s; animation-direction: reverse; }
+        .blob-3 { top: 40%; left: 30%; width: 350px; height: 350px; background: radial-gradient(circle, #fbcfe8 0%, #f472b6 50%, transparent 100%); opacity: 0.4; }
+
+        @keyframes rotateAurora {
+            0% { transform: rotate(0deg) scale(1) translate(0, 0); }
+            50% { transform: rotate(180deg) scale(1.1) translate(30px, -20px); }
+            100% { transform: rotate(360deg) scale(1) translate(0, 0); }
+        }
+
+        .navbar {
+            position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 8px; background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            padding: 8px 12px; border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.12); z-index: 1000;
+        }
+
+        .nav-link {
+            text-decoration: none; color: var(--text-muted); font-size: 13.5px; font-weight: 500;
+            padding: 8px 22px; border-radius: 30px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        .nav-link:hover { color: var(--pink-accent); }
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
+            color: #ffffff; box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+        }
+
+        .main-wrapper { max-width: 900px; width: 100%; display: flex; flex-direction: column; gap: 30px; }
+
+        .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .section-header i {
+            width: 40px; height: 40px; background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
+            color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-size: 16px; box-shadow: 0 8px 18px rgba(236, 72, 153, 0.3);
+        }
+        .section-header h2 { font-size: 20px; font-weight: 700; color: var(--text-dark); }
+
+        .education-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+        .edu-card {
+            background: var(--glass-bg); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border); border-radius: 24px; padding: 22px 18px; text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;
+        }
+
+        .edu-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--pink-accent), var(--purple-glow)); opacity: 0; transition: opacity 0.3s ease;
+        }
+
+        .edu-card:hover { transform: translateY(-6px); background: #ffffff; box-shadow: 0 20px 40px rgba(236, 72, 153, 0.1); }
+        .edu-card:hover::before { opacity: 1; }
+
+        .edu-icon { font-size: 24px; color: var(--pink-accent); margin-bottom: 10px; }
+        .edu-label { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; font-weight: 500; }
+        .edu-val { font-size: 14.5px; font-weight: 600; color: var(--text-dark); }
+
+        .btn-wrapper { display: flex; justify-content: center; margin-top: 10px; }
+        .btn-sparkle {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
+            color: white; padding: 16px 36px; border-radius: 50px; font-size: 15px; font-weight: 600;
+            text-decoration: none; box-shadow: 0 15px 35px rgba(244, 63, 94, 0.3); transition: all 0.4s ease;
+        }
+
+        .btn-sparkle:hover { transform: translateY(-4px); box-shadow: 0 20px 45px rgba(236, 72, 153, 0.45); }
+
+        @media (max-width: 768px) {
+            .education-grid { grid-template-columns: 1fr; }
+            .navbar { width: 92%; justify-content: space-around; }
+            .nav-link { padding: 8px 10px; font-size: 11.5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="aurora-bg">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> หน้าแรก</a>
+        <a href="personal.html" class="nav-link active"><i class="fa-solid fa-user"></i> ประวัติส่วนตัว</a>
+        <a href="expectation.html" class="nav-link"><i class="fa-solid fa-compass"></i> แรงบันดาลใจ</a>
+        <a href="portfolio.html" class="nav-link"><i class="fa-solid fa-briefcase"></i> ผลงาน</a>
+    </nav>
+
+    <div class="main-wrapper">
+        <section>
+            <div class="section-header">
+                <i class="fa-solid fa-landmark"></i>
+                <h2>ประวัติการศึกษา (Education)</h2>
+            </div>
+
+            <div class="education-grid">
+                <div class="edu-card">
+                    <i class="fa-solid fa-school edu-icon"></i>
+                    <div class="edu-label">สถานศึกษา</div>
+                    <div class="edu-val">บ้านบึง "อุตสาหกรรมนุเคราะห์"</div>
+                </div>
+
+                <div class="edu-card">
+                    <i class="fa-solid fa-user-graduate edu-icon"></i>
+                    <div class="edu-label">ระดับการศึกษา</div>
+                    <div class="edu-val">มัธยมศึกษาปีที่ 6</div>
+                </div>
+
+                <div class="edu-card">
+                    <i class="fa-solid fa-microscope edu-icon"></i>
+                    <div class="edu-label">สายการเรียน</div>
+                    <div class="edu-val">วิทยาศาสตร์ - คณิตศาสตร์</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="btn-wrapper">
+            <a href="expectation.html" class="btn-sparkle">
+                <span>อ่านแรงบันดาลใจและเป้าหมาย</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
