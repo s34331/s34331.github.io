@@ -58,7 +58,7 @@
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             display: flex; align-items: center; gap: 8px;
         }
-        .nav-links { display: flex; gap: 10px; }
+        .nav-links { display: flex; gap: 8px; }
         .nav-link {
             text-decoration: none; color: var(--text-dark); font-size: 13px; font-weight: 600;
             padding: 6px 16px; border-radius: 20px; transition: all 0.3s ease;
@@ -125,6 +125,7 @@
             .top-navbar { width: 92%; padding: 8px 12px; }
             .nav-link { font-size: 11px; padding: 5px 10px; }
             .profile-frame { width: 140px; height: 140px; }
+            .grid-menu { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -139,8 +140,8 @@
         <nav class="nav-links">
             <a href="index.html" class="nav-link active">หน้าแรก</a>
             <a href="personal.html" class="nav-link">ประวัติส่วนตัว</a>
-            <a href="portfolio.html" class="nav-link">ผลงาน</a>
             <a href="expectation.html" class="nav-link">เป้าหมาย</a>
+            <a href="portfolio.html" class="nav-link">ผลงาน & กิจกรรม</a>
         </nav>
     </header>
 
@@ -163,15 +164,18 @@
         <div class="grid-menu">
             <a href="personal.html" class="menu-card">
                 <i class="fa-solid fa-user-gear menu-icon"></i>
-                <div class="menu-title">เกี่ยวกับฉัน</div>
+                <div class="menu-title">ประวัติส่วนตัว</div>
+                <div class="menu-desc">ข้อมูลส่วนตัว Soft Skills และการติดต่อ</div>
             </a>
             <a href="expectation.html" class="menu-card">
-                <i class="fa-solid fa-award menu-icon"></i>
+                <i class="fa-solid fa-bullseye menu-icon"></i>
                 <div class="menu-title">เป้าหมายและความคาดหวัง</div>
+                <div class="menu-desc">ความตั้งใจด้านการเรียนและอาชีพ</div>
             </a>
             <a href="portfolio.html" class="menu-card">
-                <i class="fa-solid fa-bullseye menu-icon"></i>
+                <i class="fa-solid fa-award menu-icon"></i>
                 <div class="menu-title">ผลงานและกิจกรรม</div>
+                <div class="menu-desc">เกียรติบัตรและกิจกรรมที่เคยเข้าร่วม</div>
             </a>
         </div>
     </main>
