@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แฟ้มสะสมผลงาน | ศรัญญา แม้นแก้ว</title>
+    <title>ผลงานและกิจกรรม | ศรัญญา แม้นแก้ว</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -13,68 +13,36 @@
             --pink-accent: #ec4899;
             --purple-glow: #a855f7;
             --soft-bg: #fdf4f8;
-            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-bg: rgba(255, 255, 255, 0.68);
             --glass-border: rgba(255, 255, 255, 0.9);
             --text-dark: #1e1b4b;
             --text-muted: #64748b;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
         body {
             font-family: 'Prompt', sans-serif;
             background-color: var(--soft-bg);
             color: var(--text-dark);
             min-height: 100vh;
-            padding: 90px 20px 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow-x: hidden;
+            padding: 95px 20px 60px;
+            display: flex; justify-content: center; align-items: center;
+            position: relative; overflow-x: hidden;
         }
 
         .aurora-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1; overflow: hidden; pointer-events: none;
         }
 
         .aurora-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.55;
-            animation: rotateAurora 22s infinite linear;
+            position: absolute; border-radius: 50%; filter: blur(100px);
+            opacity: 0.55; animation: rotateAurora 22s infinite linear;
         }
 
-        .blob-1 {
-            top: -10%;
-            left: -10%;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, #a855f7 0%, #ec4899 50%, transparent 100%);
-        }
-
-        .blob-2 {
-            bottom: -15%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, #f43f5e 0%, #c084fc 50%, transparent 100%);
-            animation-duration: 28s;
-            animation-direction: reverse;
-        }
+        .blob-1 { top: -10%; left: -10%; width: 550px; height: 550px; background: radial-gradient(circle, #a855f7 0%, #ec4899 50%, transparent 100%); }
+        .blob-2 { bottom: -15%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, #f43f5e 0%, #c084fc 50%, transparent 100%); animation-duration: 28s; animation-direction: reverse; }
 
         @keyframes rotateAurora {
             0% { transform: rotate(0deg) translate(0, 0) scale(1); }
@@ -83,281 +51,110 @@
         }
 
         .top-navbar {
-            position: fixed;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: min(90%, 900px);
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            padding: 10px 24px;
-            border-radius: 40px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.1);
-            z-index: 1000;
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            display: flex; align-items: center; justify-content: space-between;
+            width: min(92%, 920px); background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            padding: 10px 24px; border-radius: 40px; border: 1px solid var(--glass-border);
+            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.1); z-index: 1000;
         }
 
         .nav-brand {
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 14px; font-weight: 700;
             background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            display: flex; align-items: center; gap: 8px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 12px;
-        }
+        .nav-links { display: flex; gap: 6px; }
 
         .nav-link {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 13px;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
+            text-decoration: none; color: var(--text-dark); font-size: 13px;
+            font-weight: 600; padding: 7px 14px; border-radius: 20px; transition: all 0.3s ease;
         }
 
         .nav-link.active, .nav-link:hover {
             background: linear-gradient(135deg, var(--rose-primary), var(--pink-accent));
-            color: #ffffff;
-            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
+            color: #ffffff; box-shadow: 0 5px 15px rgba(236, 72, 153, 0.25);
         }
 
-        .main-wrapper {
-            max-width: 900px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
+        .main-wrapper { max-width: 920px; width: 100%; display: flex; flex-direction: column; gap: 28px; }
+
+        .archive-header {
+            background: var(--glass-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border); border-radius: 36px; padding: 36px;
+            text-align: center; box-shadow: 0 20px 45px rgba(244, 63, 94, 0.06);
         }
 
-        .hero-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border);
-            border-radius: 36px;
-            padding: 40px;
-            box-shadow: 0 30px 60px rgba(244, 63, 94, 0.08);
-            display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 36px;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
+        .archive-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
+            color: var(--pink-accent); border: 1px solid rgba(236, 72, 153, 0.3);
+            padding: 5px 16px; border-radius: 30px; font-size: 12.5px; font-weight: 600; margin-bottom: 12px;
         }
 
-        .profile-avatar-wrapper {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 30px;
-            padding: 6px;
-            background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
-            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.25);
-        }
-
-        .profile-avatar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 24px;
-            background-color: #fff;
-        }
-
-        .hero-details h1 {
-            font-size: 32px;
-            font-weight: 700;
+        .archive-header h1 {
+            font-size: 26px; font-weight: 700;
             background: linear-gradient(135deg, #1e1b4b 0%, #831843 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 6px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px;
         }
 
-        .hero-subtitle {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--pink-accent);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .showcase-grid { display: flex; flex-direction: column; gap: 24px; }
+
+        .showcase-card {
+            background: var(--glass-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border); border-radius: 32px; padding: 28px;
+            box-shadow: 0 20px 45px rgba(244, 63, 94, 0.06); display: grid; grid-template-columns: 1fr 1.1fr;
+            gap: 24px; align-items: center; transition: all 0.3s ease;
         }
 
-        .hero-bio {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 24px;
+        .showcase-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.9); }
+
+        .cert-frame {
+            position: relative; border-radius: 18px; overflow: hidden;
+            border: 3px solid #ffffff; aspect-ratio: 4 / 3; background: #f1f5f9; cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
+        .cert-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .cert-overlay {
+            position: absolute; inset: 0; background: rgba(30, 27, 75, 0.4);
+            display: flex; align-items: center; justify-content: center; opacity: 0;
+            transition: opacity 0.3s ease; color: white; font-size: 13px; font-weight: 600; gap: 6px;
         }
 
-        .info-chip {
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            padding: 10px 16px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 13px;
+        .cert-frame:hover .cert-img { transform: scale(1.06); }
+        .cert-frame:hover .cert-overlay { opacity: 1; }
+
+        .card-details h2 { font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
+
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px);
+            z-index: 2000; display: flex; justify-content: center; align-items: center;
+            padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
         }
 
-        .info-chip i {
-            color: var(--rose-primary);
-            font-size: 16px;
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content { max-width: 90vw; max-height: 85vh; border-radius: 16px; }
+
+        .close-modal {
+            position: absolute; top: 20px; right: 20px; color: white; font-size: 28px; cursor: pointer;
         }
 
-        .info-chip span {
-            display: block;
-            color: var(--text-muted);
-            font-size: 11px;
-        }
-
-        .content-section {
-            background: var(--glass-bg);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            padding: 32px;
-            box-shadow: 0 20px 45px rgba(244, 63, 94, 0.06);
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .section-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            box-shadow: 0 8px 20px rgba(244, 63, 94, 0.25);
-        }
-
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 18px;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            background: #ffffff;
-            box-shadow: 0 12px 25px rgba(236, 72, 153, 0.12);
-        }
-
-        .feature-card h3 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--text-dark);
-        }
-
-        .feature-card p {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .action-callout {
-            background: linear-gradient(135deg, rgba(244, 63, 94, 0.1), rgba(168, 85, 247, 0.1));
-            border: 1px solid rgba(236, 72, 153, 0.2);
-            border-radius: 28px;
-            padding: 28px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
+        .btn-container { display: flex; justify-content: center; margin-top: 10px; }
 
         .btn-sparkle {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            display: inline-flex; align-items: center; gap: 10px;
             background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
-            color: white;
-            padding: 14px 36px;
-            border-radius: 50px;
-            font-size: 15px;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 12px 30px rgba(244, 63, 94, 0.25);
+            color: white; padding: 13px 32px; border-radius: 50px; font-size: 14.5px;
+            font-weight: 600; text-decoration: none; box-shadow: 0 12px 30px rgba(244, 63, 94, 0.25);
             transition: all 0.3s ease;
-        }
-
-        .btn-sparkle:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 18px 40px rgba(168, 85, 247, 0.35);
         }
 
         @media (max-width: 768px) {
-            body {
-                padding-top: 85px;
-            }
-
-            .hero-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 30px 20px;
-            }
-
-            .profile-avatar-wrapper {
-                width: 180px;
-                margin: 0 auto;
-            }
-
-            .hero-subtitle {
-                justify-content: center;
-            }
-
-            .top-navbar {
-                width: 92%;
-                padding: 8px 16px;
-            }
-
-            .content-section {
-                padding: 24px;
-            }
+            .showcase-card { grid-template-columns: 1fr; }
+            .top-navbar { width: 95%; padding: 8px 12px; }
+            .nav-link { padding: 6px 10px; font-size: 11.5px; }
         }
     </style>
 </head>
@@ -370,87 +167,80 @@
 
     <header class="top-navbar">
         <div class="nav-brand">
-            <i class="fa-solid fa-sparkles"></i> Saranya's Portfolio
+            <i class="fa-solid fa-gear"></i> Saranya IE KMITL
         </div>
         <nav class="nav-links">
-            <a href="index.html" class="nav-link active">หน้าแรก</a>
-            <a href="archive.html" class="nav-link">ผลงาน & กิจกรรม</a>
+            <a href="index.html" class="nav-link">หน้าแรก</a>
+            <a href="personal.html" class="nav-link">ประวัติส่วนตัว</a>
+            <a href="expectation.html" class="nav-link">เป้าหมาย</a>
+            <a href="portfolio.html" class="nav-link active">ผลงาน & กิจกรรม</a>
         </nav>
     </header>
 
     <main class="main-wrapper">
-        
-        <section class="hero-card">
-            <div class="profile-avatar-wrapper">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="ศรัญญา แม้นแก้ว" class="profile-avatar-img">
+        <section class="archive-header">
+            <div class="archive-badge">
+                <i class="fa-solid fa-trophy"></i> Activities & Certificates
             </div>
-
-            <div class="hero-details">
-                <h1>ศรัญญา แม้นแก้ว</h1>
-                <div class="hero-subtitle">
-                    <i class="fa-solid fa-graduation-cap"></i> นักเรียน / นักศึกษาผู้หลงใหลในวิทยาศาสตร์
-                </div>
-                <p class="hero-bio">
-                    มุ่งมั่นพัฒนาตนเองผ่านการเรียนรู้ทั้งในและนอกห้องเรียน มีความสนใจเป็นพิเศษด้านวิทยาศาสตร์ เคมีวัสดุ พอลิเมอร์ และการทำกิจกรรมร่วมกับผู้อื่น
-                </p>
-
-                <div class="info-grid">
-                    <div class="info-chip">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div>
-                            <span>อีเมลติดต่อ</span>
-                            <strong>saranya@example.com</strong>
-                        </div>
-                    </div>
-                    <div class="info-chip">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div>
-                            <span>ที่อยู่ / สถาบัน</span>
-                            <strong>ประเทศไทย</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="section-header">
-                <div class="section-icon">
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <h2 class="section-title">จุดเด่นและความสนใจหลัก</h2>
-            </div>
-
-            <div class="card-grid">
-                <div class="feature-card">
-                    <h3><i class="fa-solid fa-flask" style="color: var(--pink-accent);"></i> ด้านวิทยาศาสตร์ & เคมี</h3>
-                    <p>ศึกษาโครงสร้าง สมบัติ และเทคโนโลยีการสังเคราะห์วัสดุพอลิเมอร์อย่างลึกซึ้งผ่านคอร์สเรียนพิเศษ CHULA MOOC</p>
-                </div>
-
-                <div class="feature-card">
-                    <h3><i class="fa-solid fa-trophy" style="color: var(--purple-glow);"></i> ทักษะการแข่งขัน</h3>
-                    <p>มีประสบการณ์แข่งขันตอบคำถามทางวิชาการ การวิเคราะห์โจทย์เฉพาะหน้า และการทำงานร่วมกันเป็นทีม</p>
-                </div>
-
-                <div class="feature-card">
-                    <h3><i class="fa-solid fa-lightbulb" style="color: var(--rose-primary);"></i> การเรียนรู้ต่อเนื่อง</h3>
-                    <p>พร้อมเปิดรับทักษะใหม่ๆ (Upskill & Reskill) เสมอ เพื่อประยุกต์ใช้ในเป้าหมายการศึกษาและการทำงานอนาคต</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="action-callout">
-            <h3 style="font-size: 18px; color: var(--text-dark);">ต้องการดูรายละเอียดผลงานและใบประกาศนียบัตร?</h3>
-            <p style="font-size: 14px; color: var(--text-muted); max-width: 500px;">
-                รับชมคลังเกียรติบัตร CHULA MOOC การแข่งขันตอบปัญหาวิทยาศาสตร์ และรูปภาพกิจกรรมย่อได้เลยที่นี่
+            <h1>ผลงาน เกียรติบัตร และกิจกรรมการเรียนรู้</h1>
+            <p style="font-size: 14px; color: var(--text-muted);">
+                หลักฐานแสดงความมุ่งมั่นศึกษาค้นคว้าด้วยตนเองและการแข่งขันเพื่อเตรียมความพร้อมสู่วิศวกรรมอุตสาหการ
             </p>
-            <a href="archive.html" class="btn-sparkle">
-                <span>เข้าชมผลงานและกิจกรรมทั้งหมด</span>
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
         </section>
 
+        <div class="showcase-grid">
+            <article class="showcase-card">
+                <div class="cert-frame" onclick="openModal('S__51077125.jpg')">
+                    <img src="S__51077125.jpg" alt="เกียรติบัตร CHULA MOOC" class="cert-img">
+                    <div class="cert-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อขยายรูปภาพ</div>
+                </div>
+                <div class="card-details">
+                    <span style="font-size: 12px; font-weight: 700; color: var(--purple-glow);">CHULA MOOC Certificate</span>
+                    <h2>ผ่านการอบรมหลักสูตรออนไลน์เรื่องพอลิเมอร์</h2>
+                    <p style="font-size: 13.5px; color: var(--rose-primary); font-weight: 500;">จุฬาลงกรณ์มหาวิทยาลัย</p>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px; line-height: 1.6;">
+                        ศึกษาสมบัติ วัสดุศาสตร์ และเทคโนโลยีพอลิเมอร์ สะท้อนถึงการเรียนรู้ต่อยอดในวิชาวัสดุวิศวกรรม (Engineering Materials)
+                    </p>
+                </div>
+            </article>
+
+            <article class="showcase-card">
+                <div class="cert-frame" onclick="openModal('S__51077124.jpg')">
+                    <img src="S__51077124.jpg" alt="เกียรติบัตรการแข่งขัน" class="cert-img">
+                    <div class="cert-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อขยายรูปภาพ</div>
+                </div>
+                <div class="card-details">
+                    <span style="font-size: 12px; font-weight: 700; color: var(--purple-glow);">Academic Competition</span>
+                    <h2>รางวัลรองชนะเลิศอันดับ 1 ตอบคำถามวิทยาศาสตร์ (ทีม)</h2>
+                    <p style="font-size: 13.5px; color: var(--rose-primary); font-weight: 500;">การแข่งขันระดับสถาบัน</p>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px; line-height: 1.6;">
+                        ฝึกการคิดแก้ปัญหาเฉพาะหน้า การวิเคราะห์โจทย์ และการประสานงานในทีมแข่งขันอย่างมีประสิทธิภาพ
+                    </p>
+                </div>
+            </article>
+        </div>
+
+        <div class="btn-container">
+            <a href="index.html" class="btn-sparkle">
+                <i class="fa-solid fa-house"></i>
+                <span>ย้อนกลับไปหน้าแรก (Home)</span>
+            </a>
+        </div>
     </main>
 
+    <div class="modal-overlay" id="imageModal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img src="" alt="Certificate View" class="modal-content" id="modalImg">
+    </div>
+
+    <script>
+        function openModal(src) {
+            document.getElementById('modalImg').src = src;
+            document.getElementById('imageModal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('active');
+        }
+    </script>
 </body>
 </html>
