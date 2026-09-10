@@ -3,245 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน้าแรก | ศรัญญา แม้นแก้ว - Industrial Engineering Portfolio</title>
+    <title>หน้าแรก | ศรัญญา แม้นแก้ว Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
             --rose-primary: #f43f5e;
             --pink-accent: #ec4899;
             --purple-glow: #a855f7;
             --soft-bg: #fdf4f8;
-            --glass-bg: rgba(255, 255, 255, 0.68);
+            --glass-bg: rgba(255, 255, 255, 0.65);
             --glass-border: rgba(255, 255, 255, 0.9);
             --text-dark: #1e1b4b;
             --text-muted: #64748b;
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-
         body {
             font-family: 'Prompt', sans-serif;
             background-color: var(--soft-bg);
             color: var(--text-dark);
             min-height: 100vh;
-            padding: 95px 20px 60px;
+            padding: 100px 20px 60px;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
             overflow-x: hidden;
         }
-
         .aurora-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -1; overflow: hidden; pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none;
         }
-
         .aurora-blob {
-            position: absolute; border-radius: 50%; filter: blur(100px);
-            opacity: 0.55; animation: rotateAurora 22s infinite linear;
+            position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.55;
+            animation: rotateAurora 22s infinite linear;
         }
-
         .blob-1 { top: -10%; left: -10%; width: 550px; height: 550px; background: radial-gradient(circle, #a855f7 0%, #ec4899 50%, transparent 100%); }
         .blob-2 { bottom: -15%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, #f43f5e 0%, #c084fc 50%, transparent 100%); animation-duration: 28s; animation-direction: reverse; }
-
         @keyframes rotateAurora {
             0% { transform: rotate(0deg) translate(0, 0) scale(1); }
             50% { transform: rotate(180deg) translate(30px, 20px) scale(1.1); }
             100% { transform: rotate(360deg) translate(0, 0) scale(1); }
         }
-
         .top-navbar {
-            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
             display: flex; align-items: center; justify-content: space-between;
-            width: min(92%, 920px); background: rgba(255, 255, 255, 0.78);
+            width: min(90%, 900px); background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             padding: 10px 24px; border-radius: 40px; border: 1px solid var(--glass-border);
             box-shadow: 0 15px 35px rgba(236, 72, 153, 0.1); z-index: 1000;
         }
-
         .nav-brand {
-            font-size: 14px; font-weight: 700;
+            font-size: 15px; font-weight: 700;
             background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             display: flex; align-items: center; gap: 8px;
         }
-
-        .nav-links { display: flex; gap: 6px; }
-
+        .nav-links { display: flex; gap: 10px; }
         .nav-link {
-            text-decoration: none; color: var(--text-dark); font-size: 13px;
-            font-weight: 600; padding: 7px 14px; border-radius: 20px; transition: all 0.3s ease;
+            text-decoration: none; color: var(--text-dark); font-size: 13px; font-weight: 600;
+            padding: 6px 16px; border-radius: 20px; transition: all 0.3s ease;
         }
-
-        .nav-link.active, .nav-link:hover {
-            background: linear-gradient(135deg, var(--rose-primary), var(--pink-accent));
-            color: #ffffff; box-shadow: 0 5px 15px rgba(236, 72, 153, 0.25);
+        .nav-link:hover, .nav-link.active {
+            background: var(--pink-accent); color: #fff; box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
         }
-
-        .main-wrapper { max-width: 920px; width: 100%; display: flex; flex-direction: column; gap: 28px; }
-
         .hero-card {
             background: var(--glass-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border); border-radius: 36px; padding: 38px;
-            box-shadow: 0 30px 60px rgba(244, 63, 94, 0.08); display: grid; grid-template-columns: 240px 1fr;
-            gap: 32px; align-items: center;
+            border: 1px solid var(--glass-border); border-radius: 36px; padding: 50px 40px;
+            max-width: 900px; width: 100%; text-align: center; box-shadow: 0 30px 60px rgba(244, 63, 94, 0.08);
         }
-
-        .profile-avatar-wrapper {
-            width: 100%; aspect-ratio: 1 / 1; border-radius: 30px; padding: 5px;
-            background: linear-gradient(135deg, var(--pink-accent), var(--purple-glow));
-            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.25);
-        }
-
-        .profile-avatar-img { width: 100%; height: 100%; object-fit: cover; border-radius: 25px; background: #fff; }
-
-        .hero-details h1 {
-            font-size: 32px; font-weight: 700;
-            background: linear-gradient(135deg, #1e1b4b 0%, #831843 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 4px;
-        }
-
         .target-badge {
             display: inline-flex; align-items: center; gap: 8px;
-            background: linear-gradient(135deg, rgba(244, 63, 94, 0.12), rgba(168, 85, 247, 0.12));
-            color: var(--rose-primary); border: 1px solid rgba(244, 63, 94, 0.25);
-            padding: 5px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; margin-bottom: 12px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
+            color: var(--pink-accent); border: 1px solid rgba(236, 72, 153, 0.3);
+            padding: 6px 20px; border-radius: 30px; font-size: 13px; font-weight: 600; margin-bottom: 20px;
         }
-
-        .hero-bio { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
-
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
-
-        .info-chip {
-            background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(255, 255, 255, 0.9);
-            padding: 10px 14px; border-radius: 16px; display: flex; align-items: center; gap: 10px; font-size: 12.5px;
+        .hero-title {
+            font-size: 36px; font-weight: 700;
+            background: linear-gradient(135deg, #1e1b4b 0%, #831843 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px;
         }
-
-        .info-chip i { color: var(--rose-primary); font-size: 15px; }
-
-        .content-section {
-            background: var(--glass-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border); border-radius: 32px; padding: 32px;
-            box-shadow: 0 20px 45px rgba(244, 63, 94, 0.06);
+        .hero-subtitle { font-size: 16px; color: var(--text-muted); margin-bottom: 30px; line-height: 1.6; }
+        .grid-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }
+        .menu-card {
+            background: rgba(255, 255, 255, 0.8); border: 1px solid var(--glass-border);
+            padding: 24px; border-radius: 24px; text-decoration: none; color: var(--text-dark);
+            transition: all 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 10px;
         }
-
-        .section-title {
-            font-size: 19px; font-weight: 700; color: var(--text-dark); margin-bottom: 18px;
-            display: flex; align-items: center; gap: 10px;
-        }
-
-        .section-title i { color: var(--purple-glow); }
-
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.9);
-            border-radius: 20px; padding: 20px; transition: all 0.3s ease;
-        }
-
-        .feature-card:hover { transform: translateY(-4px); background: #ffffff; box-shadow: 0 12px 25px rgba(236, 72, 153, 0.12); }
-
-        .feature-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text-dark); }
-        .feature-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-
-        .btn-container { display: flex; gap: 14px; justify-content: center; margin-top: 10px; }
-
-        .btn-sparkle {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
-            color: white; padding: 13px 32px; border-radius: 50px; font-size: 14.5px;
-            font-weight: 600; text-decoration: none; box-shadow: 0 12px 30px rgba(244, 63, 94, 0.25);
-            transition: all 0.3s ease;
-        }
-
-        .btn-sparkle:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(168, 85, 247, 0.35); }
-
+        .menu-card:hover { transform: translateY(-5px); background: #fff; box-shadow: 0 15px 30px rgba(236, 72, 153, 0.15); }
+        .menu-icon { font-size: 28px; color: var(--rose-primary); }
+        .menu-title { font-weight: 700; font-size: 16px; }
+        .menu-desc { font-size: 12px; color: var(--text-muted); }
         @media (max-width: 768px) {
-            .hero-card { grid-template-columns: 1fr; text-align: center; }
-            .profile-avatar-wrapper { width: 180px; margin: 0 auto; }
-            .top-navbar { width: 95%; padding: 8px 12px; }
-            .nav-link { padding: 6px 10px; font-size: 11.5px; }
+            .hero-title { font-size: 26px; }
+            .top-navbar { width: 92%; padding: 8px 12px; }
+            .nav-link { font-size: 11px; padding: 5px 10px; }
         }
     </style>
 </head>
 <body>
-
     <div class="aurora-bg">
         <div class="aurora-blob blob-1"></div>
         <div class="aurora-blob blob-2"></div>
     </div>
 
     <header class="top-navbar">
-        <div class="nav-brand">
-            <i class="fa-solid fa-gear"></i> Saranya IE KMITL
-        </div>
+        <div class="nav-brand"><i class="fa-solid fa-graduation-cap"></i> Sarunya Portfolio</div>
         <nav class="nav-links">
             <a href="index.html" class="nav-link active">หน้าแรก</a>
             <a href="personal.html" class="nav-link">ประวัติส่วนตัว</a>
+            <a href="portfolio.html" class="nav-link">ผลงาน</a>
             <a href="expectation.html" class="nav-link">เป้าหมาย</a>
-            <a href="portfolio.html" class="nav-link">ผลงาน & กิจกรรม</a>
         </nav>
     </header>
 
-    <main class="main-wrapper">
-        <section class="hero-card">
-            <div class="profile-avatar-wrapper">
-                <img src="IMG_7850.jpeg" alt="ศรัญญา แม้นแก้ว" class="profile-avatar-img">
-            </div>
+    <main class="hero-card">
+        <div class="target-badge">
+            <i class="fa-solid fa-gear"></i> M.6 Industrial Engineering Aspiration
+        </div>
+        <h1 class="hero-title">ศรัญญา แม้นแก้ว</h1>
+        <p class="hero-subtitle">
+            นักเรียนชั้นมัธยมศึกษาปีที่ 6 แผนการเรียนวิทยาศาสตร์-คณิตศาสตร์ โรงเรียนบ้านบึง "อุตสาหกรรมนุกูล"<br>
+            ผู้มีความมุ่งมั่นเข้าศึกษาต่อใน <strong>คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (KMITL)</strong>
+        </p>
 
-            <div class="hero-details">
-                <div class="target-badge">
-                    <i class="fa-solid fa-building-columns"></i> คณะวิศวกรรมศาสตร์ สาขาวิชาวิศวกรรมอุตสาหการ | สจล.
-                </div>
-                <h1>ศรัญญา แม้นแก้ว</h1>
-                <p style="font-weight: 600; color: var(--pink-accent); margin-bottom: 10px;">
-                    นักเรียนชั้นมัธยมศึกษาปีที่ 6 (วิทย์-คณิต) โรงเรียนบ้านบึง "อุตสาหกรรมนุกูล"
-                </p>
-                <p class="hero-bio">
-                    ยินดีต้อนรับสู่แฟ้มสะสมผลงานออนไลน์ของดิฉัน มุ่งมั่นที่จะก้าวสู่การเป็น **วิศวกรอุตสาหการ** ด้วยกระบวนการคิดเชิงวิทยาศาสตร์ การวิเคราะห์ระบบ และทักษะการประสานงานทีมเพื่อเพิ่มประสิทธิภาพการผลิต
-                </p>
-
-                <div class="info-grid">
-                    <div class="info-chip">
-                        <i class="fa-solid fa-phone"></i>
-                        <div><strong>090-926-0123</strong></div>
-                    </div>
-                    <div class="info-chip">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div><strong>sarunyamankeaw@gmail.com</strong></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <h2 class="section-title"><i class="fa-solid fa-star"></i> ทักษะความสามารถพิเศษ (Special Skills)</h2>
-            <div class="card-grid">
-                <div class="feature-card">
-                    <h3><i class="fa-solid fa-brain" style="color: var(--pink-accent);"></i> ความจำดีและเรียนรู้ไว</h3>
-                    <p>จดจำรายละเอียดกระบวนการและข้อมูลเชิงวิชาการที่ซับซ้อนได้อย่างแม่นยำ พร้อมต่อยอดเทคโนโลยีใหม่เสมอ</p>
-                </div>
-                <div class="feature-card">
-                    <h3><i class="fa-solid fa-people-group" style="color: var(--purple-glow);"></i> เข้ากับคนง่าย</h3>
-                    <p>มีมนุษยสัมพันธ์ดีเยี่ยม ปรับตัวเข้ากับสภาพแวดล้อมใหม่ได้รวดเร็ว สร้างบรรยากาศการทำงานเชิงบวก</p>
-                </div>
-                <div class="feature-card">
-                    <h3><i class="fa-solid fa-handshake" style="color: var(--rose-primary);"></i> การทำงานเป็นทีม</h3>
-                    <p>รับฟังความคิดเห็น มีความรับผิดชอบ และพร้อมสนับสนุนเพื่อนร่วมทีมเพื่อความสำเร็จขององค์กร</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="btn-container">
-            <a href="personal.html" class="btn-sparkle">
-                <span>อ่านประวัติส่วนตัวเพิ่มเติม</span>
-                <i class="fa-solid fa-arrow-right"></i>
+        <div class="grid-menu">
+            <a href="personal.html" class="menu-card">
+                <i class="fa-solid fa-user-gear menu-icon"></i>
+                <div class="menu-title">เกี่ยวกับฉัน</div>
+                <div class="menu-desc">ประวัติส่วนตัว ทักษะพิเศษ และช่องทางติดต่อ</div>
+            </a>
+            <a href="portfolio.html" class="menu-card">
+                <i class="fa-solid fa-award menu-icon"></i>
+                <div class="menu-title">ผลงานและกิจกรรม</div>
+                <div class="menu-desc">เกียรติบัตร CHULA MOOC และการแข่งขันวิชาการ</div>
+            </a>
+            <a href="expectation.html" class="menu-card">
+                <i class="fa-solid fa-bullseye menu-icon"></i>
+                <div class="menu-title">เป้าหมายและความคาดหวัง</div>
+                <div class="menu-desc">ความตั้งใจจริงในการเข้าศึกษาวิศวกรรมอุตสาหการ ลาดกระบัง</div>
             </a>
         </div>
     </main>
-
 </body>
 </html>
