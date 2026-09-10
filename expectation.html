@@ -6,130 +6,184 @@
     <title>เป้าหมายและความคาดหวัง | ศรัญญา แม้นแก้ว</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
             --rose-primary: #f43f5e;
             --pink-accent: #ec4899;
             --purple-glow: #a855f7;
             --soft-bg: #fdf4f8;
-            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-bg: rgba(255, 255, 255, 0.68);
             --glass-border: rgba(255, 255, 255, 0.9);
             --text-dark: #1e1b4b;
             --text-muted: #64748b;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
         body {
             font-family: 'Prompt', sans-serif;
             background-color: var(--soft-bg);
             color: var(--text-dark);
             min-height: 100vh;
-            padding: 100px 20px 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow-x: hidden;
+            padding: 95px 20px 60px;
+            display: flex; justify-content: center; align-items: center;
+            position: relative; overflow-x: hidden;
         }
-        .aurora-bg { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
-        .aurora-blob { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.55; animation: rotateAurora 22s infinite linear; }
+
+        .aurora-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1; overflow: hidden; pointer-events: none;
+        }
+
+        .aurora-blob {
+            position: absolute; border-radius: 50%; filter: blur(100px);
+            opacity: 0.55; animation: rotateAurora 22s infinite linear;
+        }
+
         .blob-1 { top: -10%; left: -10%; width: 550px; height: 550px; background: radial-gradient(circle, #a855f7 0%, #ec4899 50%, transparent 100%); }
         .blob-2 { bottom: -15%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, #f43f5e 0%, #c084fc 50%, transparent 100%); animation-duration: 28s; animation-direction: reverse; }
+
         @keyframes rotateAurora {
             0% { transform: rotate(0deg) translate(0, 0) scale(1); }
             50% { transform: rotate(180deg) translate(30px, 20px) scale(1.1); }
             100% { transform: rotate(360deg) translate(0, 0) scale(1); }
         }
+
         .top-navbar {
-            position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             display: flex; align-items: center; justify-content: space-between;
-            width: min(90%, 900px); background: rgba(255, 255, 255, 0.75);
+            width: min(92%, 920px); background: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             padding: 10px 24px; border-radius: 40px; border: 1px solid var(--glass-border);
             box-shadow: 0 15px 35px rgba(236, 72, 153, 0.1); z-index: 1000;
         }
+
         .nav-brand {
-            font-size: 15px; font-weight: 700;
+            font-size: 14px; font-weight: 700;
             background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             display: flex; align-items: center; gap: 8px;
         }
-        .nav-links { display: flex; gap: 10px; }
+
+        .nav-links { display: flex; gap: 6px; }
+
         .nav-link {
-            text-decoration: none; color: var(--text-dark); font-size: 13px; font-weight: 600;
-            padding: 6px 16px; border-radius: 20px; transition: all 0.3s ease;
+            text-decoration: none; color: var(--text-dark); font-size: 13px;
+            font-weight: 600; padding: 7px 14px; border-radius: 20px; transition: all 0.3s ease;
         }
-        .nav-link:hover, .nav-link.active {
-            background: var(--pink-accent); color: #fff; box-shadow: 0 5px 15px rgba(236, 72, 153, 0.3);
+
+        .nav-link.active, .nav-link:hover {
+            background: linear-gradient(135deg, var(--rose-primary), var(--pink-accent));
+            color: #ffffff; box-shadow: 0 5px 15px rgba(236, 72, 153, 0.25);
         }
-        .main-wrapper { max-width: 900px; width: 100%; display: flex; flex-direction: column; gap: 24px; }
-        .glass-card {
+
+        .main-wrapper { max-width: 920px; width: 100%; display: flex; flex-direction: column; gap: 28px; }
+
+        .content-section {
             background: var(--glass-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border); border-radius: 32px; padding: 35px;
+            border: 1px solid var(--glass-border); border-radius: 36px; padding: 36px;
             box-shadow: 0 20px 45px rgba(244, 63, 94, 0.06);
         }
-        .section-title {
-            font-size: 22px; font-weight: 700; color: var(--text-dark); margin-bottom: 16px;
-            display: flex; align-items: center; gap: 10px;
+
+        .section-header-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
+            color: var(--pink-accent); border: 1px solid rgba(236, 72, 153, 0.3);
+            padding: 5px 16px; border-radius: 30px; font-size: 12.5px; font-weight: 600; margin-bottom: 12px;
         }
-        .section-title i { color: var(--rose-primary); }
-        .card-p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
-        .goal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 10px; }
-        .goal-item {
-            background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.9);
-            padding: 20px; border-radius: 24px; display: flex; flex-direction: column; gap: 10px;
+
+        .page-title {
+            font-size: 26px; font-weight: 700;
+            background: linear-gradient(135deg, #1e1b4b 0%, #831843 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px;
         }
-        .goal-item i { font-size: 24px; color: var(--pink-accent); }
-        .goal-item h3 { font-size: 16px; font-weight: 700; color: var(--text-dark); }
-        .goal-item p { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.75); border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 24px; padding: 24px; margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 17px; font-weight: 700; color: var(--rose-primary);
+            margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+        }
+
+        .info-card ul { list-style: none; padding-left: 0; }
+        .info-card ul li { position: relative; padding-left: 24px; margin-bottom: 12px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .info-card ul li::before {
+            content: "✦"; position: absolute; left: 0; color: var(--pink-accent); font-weight: bold;
+        }
+
+        .btn-container { display: flex; gap: 14px; justify-content: center; margin-top: 10px; }
+
+        .btn-sparkle {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
+            color: white; padding: 13px 32px; border-radius: 50px; font-size: 14.5px;
+            font-weight: 600; text-decoration: none; box-shadow: 0 12px 30px rgba(244, 63, 94, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .btn-sparkle:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(168, 85, 247, 0.35); }
+
+        @media (max-width: 768px) {
+            .top-navbar { width: 95%; padding: 8px 12px; }
+            .nav-link { padding: 6px 10px; font-size: 11.5px; }
+            .content-section { padding: 24px; }
+        }
     </style>
 </head>
 <body>
+
     <div class="aurora-bg">
         <div class="aurora-blob blob-1"></div>
         <div class="aurora-blob blob-2"></div>
     </div>
 
     <header class="top-navbar">
-        <div class="nav-brand"><i class="fa-solid fa-graduation-cap"></i> Sarunya Portfolio</div>
+        <div class="nav-brand">
+            <i class="fa-solid fa-gear"></i> Saranya IE KMITL
+        </div>
         <nav class="nav-links">
             <a href="index.html" class="nav-link">หน้าแรก</a>
             <a href="personal.html" class="nav-link">ประวัติส่วนตัว</a>
-            <a href="portfolio.html" class="nav-link">ผลงาน</a>
             <a href="expectation.html" class="nav-link active">เป้าหมาย</a>
+            <a href="portfolio.html" class="nav-link">ผลงาน & กิจกรรม</a>
         </nav>
     </header>
 
-    <div class="main-wrapper">
-        <section class="glass-card">
-            <h2 class="section-title"><i class="fa-solid fa-compass-drafting"></i> แรงบันดาลใจและความคาดหวัง</h2>
-            <p class="card-p">
-                ในฐานะนักเรียนแผนการเรียนวิทยาศาสตร์-คณิตศาสตร์ จากโรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์" หนูมีความตั้งใจและมุ่งมั่นเป็นอย่างยิ่งที่จะเข้าศึกษาต่อใน <strong>คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.)</strong>
-            </p>
-            <p class="card-p">
-                หนูเชื่อว่าวิศวกรรมอุตสาหการคือหัวใจสำคัญในการเชื่อมโยงระหว่างเทคโนโลยี คน และการบริหารจัดการกระบวนการผลิตให้มีประสิทธิภาพสูงสุด ด้วยจุดเด่นของหนูที่มี <strong>ความจำดี มนุษยสัมพันธ์ดี และชอบการทำงานเป็นทีม</strong> หนูมั่นใจว่าจะสามารถนำทักษะเหล่านี้ไปต่อยอดในการเรียนรู้ ออกแบบ และพัฒนาระบบอุตสาหกรรมสมัยใหม่ที่ลาดกระบังได้อย่างเต็มศักยภาพ
-            </p>
-        </section>
+    <main class="main-wrapper">
+        <section class="content-section">
+            <div class="section-header-badge">
+                <i class="fa-solid fa-bullseye"></i> Future Expectations & Goals
+            </div>
+            <h1 class="page-title">เป้าหมายและความคาดหวัง (Expectations)</h1>
 
-        <section class="glass-card">
-            <h2 class="section-title"><i class="fa-solid fa-bullseye"></i> เป้าหมายในอนาคต (Future Goals)</h2>
-            <div class="goal-grid">
-                <div class="goal-item">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <h3>เป้าหมายระยะสั้น</h3>
-                    <p>เข้าเป็นนักศึกษาคณะวิศวกรรมศาสตร์ สาขาวิศวกรรมอุตสาหการ สจล. และตั้งใจศึกษาค้นคว้าทั้งทฤษฎีและปฏิบัติอย่างเต็มที่</p>
-                </div>
-                <div class="goal-item">
-                    <i class="fa-solid fa-diagram-project"></i>
-                    <h3>เป้าหมายระหว่างเรียน</h3>
-                    <p>เข้าร่วมกิจกรรมเวิร์กช็อป โครงการวิจัย และพัฒนาระบบการจัดสรรทรัพยากร/พอลิเมอร์ เพื่อสะสมประสบการณ์จริงร่วมกับเพื่อนและอาจารย์</p>
-                </div>
-                <div class="goal-item">
-                    <i class="fa-solid fa-industry"></i>
-                    <h3>เป้าหมายอาชีพ</h3>
-                    <p>ก้าวไปเป็นวิศวกรอุตสาหการ (Industrial Engineer) ที่มีความเชี่ยวชาญในการปรับปรุงกระบวนการผลิตและเพิ่มประสิทธิภาพองค์กรในระดับสากล</p>
-                </div>
+            <div class="info-card">
+                <h3><i class="fa-solid fa-graduation-cap"></i> เป้าหมายด้านการศึกษา</h3>
+                <ul>
+                    <li><strong>สถาบันเป้าหมาย :</strong> มุ่งมั่นสอบเข้าศึกษาต่อใน **คณะวิศวกรรมศาสตร์ สาขาวิชาวิศวกรรมอุตสาหการ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.)**</li>
+                    <li><strong>ความตั้งใจในการเรียน :</strong> สภาพแวดล้อมที่เข้มข้นของลาดกระบังจะช่วยเจียระไนความรู้ด้านการออกแบบระบบ การจัดการกระบวนการผลิต (Operation Research) และ Logistics ให้แหลมคม</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fa-solid fa-briefcase"></i> เป้าหมายในสายอาชีพ</h3>
+                <ul>
+                    <li><strong>การทำงานในอนาคต :</strong> ก้าวไปสู่การเป็น **วิศวกรอุตสาหการ (Industrial Engineer)** มืออาชีพ ที่เพิ่มประสิทธิภาพ ลดความสูญเสียในกระบวนการผลิต และเพิ่มความปลอดภัยในการทำงาน</li>
+                    <li><strong>การนำทักษะมาประยุกต์ใช้ :</strong> ดึงเอาทักษะ **ความจำดี เรียนรู้ไว** มาช่วยในการวิเคราะห์ข้อมูลซับซ้อน และใช้ความสามารถ **เข้ากับคนง่ายและทำงานเป็นทีม** ในการประสานงานระหว่างฝ่ายบริหารและฝ่ายปฏิบัติการได้อย่างราบรื่น</li>
+                </ul>
             </div>
         </section>
-    </div>
+
+        <div class="btn-container">
+            <a href="portfolio.html" class="btn-sparkle">
+                <span>รับชมผลงานและกิจกรรม</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
 </body>
 </html>
