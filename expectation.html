@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ผลงานและกิจกรรม | ศรัญญา แม้นแก้ว</title>
+    <title>เป้าหมายและความคาดหวัง | ศรัญญา แม้นแก้ว</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -66,11 +66,11 @@
             display: flex; align-items: center; gap: 8px;
         }
 
-        .nav-links { display: flex; gap: 8px; }
+        .nav-links { display: flex; gap: 6px; }
 
         .nav-link {
             text-decoration: none; color: var(--text-dark); font-size: 13px;
-            font-weight: 600; padding: 7px 16px; border-radius: 20px; transition: all 0.3s ease;
+            font-weight: 600; padding: 7px 14px; border-radius: 20px; transition: all 0.3s ease;
         }
 
         .nav-link.active, .nav-link:hover {
@@ -80,68 +80,42 @@
 
         .main-wrapper { max-width: 920px; width: 100%; display: flex; flex-direction: column; gap: 28px; }
 
-        .archive-header {
+        .content-section {
             background: var(--glass-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
             border: 1px solid var(--glass-border); border-radius: 36px; padding: 36px;
-            text-align: center; box-shadow: 0 20px 45px rgba(244, 63, 94, 0.06);
+            box-shadow: 0 20px 45px rgba(244, 63, 94, 0.06);
         }
 
-        .archive-badge {
+        .section-header-badge {
             display: inline-flex; align-items: center; gap: 8px;
             background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
             color: var(--pink-accent); border: 1px solid rgba(236, 72, 153, 0.3);
             padding: 5px 16px; border-radius: 30px; font-size: 12.5px; font-weight: 600; margin-bottom: 12px;
         }
 
-        .archive-header h1 {
+        .page-title {
             font-size: 26px; font-weight: 700;
             background: linear-gradient(135deg, #1e1b4b 0%, #831843 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 16px;
         }
 
-        .showcase-grid { display: flex; flex-direction: column; gap: 24px; }
-
-        .showcase-card {
-            background: var(--glass-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--glass-border); border-radius: 32px; padding: 28px;
-            box-shadow: 0 20px 45px rgba(244, 63, 94, 0.06); display: grid; grid-template-columns: 1fr 1.1fr;
-            gap: 24px; align-items: center; transition: all 0.3s ease;
+        .info-card {
+            background: rgba(255, 255, 255, 0.75); border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 24px; padding: 24px; margin-bottom: 20px;
         }
 
-        .showcase-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.9); }
-
-        .cert-frame {
-            position: relative; border-radius: 18px; overflow: hidden;
-            border: 3px solid #ffffff; aspect-ratio: 4 / 3; background: #f1f5f9; cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+        .info-card h3 {
+            font-size: 17px; font-weight: 700; color: var(--rose-primary);
+            margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
         }
 
-        .cert-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .cert-overlay {
-            position: absolute; inset: 0; background: rgba(30, 27, 75, 0.4);
-            display: flex; align-items: center; justify-content: center; opacity: 0;
-            transition: opacity 0.3s ease; color: white; font-size: 13px; font-weight: 600; gap: 6px;
+        .info-card ul { list-style: none; padding-left: 0; }
+        .info-card ul li { position: relative; padding-left: 24px; margin-bottom: 12px; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+        .info-card ul li::before {
+            content: "✦"; position: absolute; left: 0; color: var(--pink-accent); font-weight: bold;
         }
 
-        .cert-frame:hover .cert-img { transform: scale(1.06); }
-        .cert-frame:hover .cert-overlay { opacity: 1; }
-
-        .card-details h2 { font-size: 17px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px; }
-
-        .modal-overlay {
-            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px);
-            z-index: 2000; display: flex; justify-content: center; align-items: center;
-            padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-        }
-
-        .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-content { max-width: 90vw; max-height: 85vh; border-radius: 16px; }
-
-        .close-modal {
-            position: absolute; top: 20px; right: 20px; color: white; font-size: 28px; cursor: pointer;
-        }
-
-        .btn-container { display: flex; justify-content: center; margin-top: 10px; }
+        .btn-container { display: flex; gap: 14px; justify-content: center; margin-top: 10px; }
 
         .btn-sparkle {
             display: inline-flex; align-items: center; gap: 10px;
@@ -151,10 +125,12 @@
             transition: all 0.3s ease;
         }
 
+        .btn-sparkle:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(168, 85, 247, 0.35); }
+
         @media (max-width: 768px) {
-            .showcase-card { grid-template-columns: 1fr; }
             .top-navbar { width: 95%; padding: 8px 12px; }
-            .nav-link { padding: 6px 12px; font-size: 12px; }
+            .nav-link { padding: 6px 10px; font-size: 11.5px; }
+            .content-section { padding: 24px; }
         }
     </style>
 </head>
@@ -171,75 +147,43 @@
         </div>
         <nav class="nav-links">
             <a href="index.html" class="nav-link">หน้าแรก</a>
-            <a href="about.html" class="nav-link">เกี่ยวกับฉัน</a>
-            <a href="archive.html" class="nav-link active">ผลงาน & กิจกรรม</a>
+            <a href="personal.html" class="nav-link">ประวัติส่วนตัว</a>
+            <a href="expectation.html" class="nav-link active">เป้าหมาย</a>
+            <a href="portfolio.html" class="nav-link">ผลงาน & กิจกรรม</a>
         </nav>
     </header>
 
     <main class="main-wrapper">
-        <section class="archive-header">
-            <div class="archive-badge">
-                <i class="fa-solid fa-trophy"></i> Activities & Certificates
+        <section class="content-section">
+            <div class="section-header-badge">
+                <i class="fa-solid fa-bullseye"></i> Future Expectations & Goals
             </div>
-            <h1>ผลงาน เกียรติบัตร และกิจกรรมการเรียนรู้</h1>
-            <p style="font-size: 14px; color: var(--text-muted);">
-                รวบรวมหลักฐานการศึกษาค้นคว้าด้วยตนเอง และการเข้าร่วมการแข่งขันเพื่อเตรียมความพร้อมสู่การเรียนวิศวกรรมศาสตร์
-            </p>
+            <h1 class="page-title">เป้าหมายและความคาดหวัง (Expectations)</h1>
+
+            <div class="info-card">
+                <h3><i class="fa-solid fa-graduation-cap"></i> เป้าหมายด้านการศึกษา</h3>
+                <ul>
+                    <li><strong>สถาบันเป้าหมาย :</strong> มุ่งมั่นสอบเข้าศึกษาต่อใน **คณะวิศวกรรมศาสตร์ สาขาวิชาวิศวกรรมอุตสาหการ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.)**</li>
+                    <li><strong>ความตั้งใจในการเรียน :</strong> สภาพแวดล้อมที่เข้มข้นของลาดกระบังจะช่วยเจียระไนความรู้ด้านการออกแบบระบบ การจัดการกระบวนการผลิต (Operation Research) และ Logistics ให้แหลมคม</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fa-solid fa-briefcase"></i> เป้าหมายในสายอาชีพ</h3>
+                <ul>
+                    <li><strong>การทำงานในอนาคต :</strong> ก้าวไปสู่การเป็น **วิศวกรอุตสาหการ (Industrial Engineer)** มืออาชีพ ที่เพิ่มประสิทธิภาพ ลดความสูญเสียในกระบวนการผลิต และเพิ่มความปลอดภัยในการทำงาน</li>
+                    <li><strong>การนำทักษะมาประยุกต์ใช้ :</strong> ดึงเอาทักษะ **ความจำดี เรียนรู้ไว** มาช่วยในการวิเคราะห์ข้อมูลซับซ้อน และใช้ความสามารถ **เข้ากับคนง่ายและทำงานเป็นทีม** ในการประสานงานระหว่างฝ่ายบริหารและฝ่ายปฏิบัติการได้อย่างราบรื่น</li>
+                </ul>
+            </div>
         </section>
 
-        <div class="showcase-grid">
-            <article class="showcase-card">
-                <div class="cert-frame" onclick="openModal('S__51077125.jpg')">
-                    <img src="S__51077125.jpg" alt="เกียรติบัตร CHULA MOOC" class="cert-img">
-                    <div class="cert-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> ขยายรูปภาพ</div>
-                </div>
-                <div class="card-details">
-                    <span style="font-size: 12px; font-weight: 700; color: var(--purple-glow);">CHULA MOOC Online Course</span>
-                    <h2>ผ่านการอบรมหลักสูตรออนไลน์เรื่องพอลิเมอร์</h2>
-                    <p style="font-size: 13.5px; color: var(--rose-primary); font-weight: 500;">จุฬาลงกรณ์มหาวิทยาลัย</p>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px; line-height: 1.6;">
-                        ศึกษาเรียนรู้โครงสร้าง สมบัติ และการประยุกต์ใช้วัสดุพอลิเมอร์ สะท้อนถึงความสนใจในการเรียนรู้เทคโนโลยีวัสดุ ซึ่งเป็นพื้นฐานสำคัญของการจัดการวัสดุในวิศวกรรมอุตสาหการ
-                    </p>
-                </div>
-            </article>
-
-            <article class="showcase-card">
-                <div class="cert-frame" onclick="openModal('S__51077124.jpg')">
-                    <img src="S__51077124.jpg" alt="เกียรติบัตรการแข่งขัน" class="cert-img">
-                    <div class="cert-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> ขยายรูปภาพ</div>
-                </div>
-                <div class="card-details">
-                    <span style="font-size: 12px; font-weight: 700; color: var(--purple-glow);">Academic Competition</span>
-                    <h2>รางวัลรองชนะเลิศอันดับ 1 ตอบคำถามวิทยาศาสตร์ (ทีม)</h2>
-                    <p style="font-size: 13.5px; color: var(--rose-primary); font-weight: 500;">การแข่งขันระดับสถาบัน</p>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-top: 8px; line-height: 1.6;">
-                        ทดสอบการทำงานเป็นทีมภายใต้ความกดดัน การแก้ไขปัญหาเฉพาะหน้า และการนำองค์ความรู้ทางวิทยาศาสตร์มาประยุกต์ใช้ในการแข่งขัน
-                    </p>
-                </div>
-            </article>
-        </div>
-
         <div class="btn-container">
-            <a href="index.html" class="btn-sparkle">
-                <i class="fa-solid fa-house"></i>
-                <span>กลับสู่หน้าแรก (Home)</span>
+            <a href="portfolio.html" class="btn-sparkle">
+                <span>รับชมผลงานและกิจกรรม</span>
+                <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
     </main>
 
-    <div class="modal-overlay" id="imageModal" onclick="closeModal()">
-        <span class="close-modal">&times;</span>
-        <img src="" alt="Certificate" class="modal-content" id="modalImg">
-    </div>
-
-    <script>
-        function openModal(src) {
-            document.getElementById('modalImg').src = src;
-            document.getElementById('imageModal').classList.add('active');
-        }
-        function closeModal() {
-            document.getElementById('imageModal').classList.remove('active');
-        }
-    </script>
 </body>
 </html>
