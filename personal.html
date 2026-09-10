@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เกี่ยวกับฉัน & เป้าหมาย | ศรัญญา แม้นแก้ว</title>
+    <title>ประวัติส่วนตัว | ศรัญญา แม้นแก้ว</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -66,11 +66,11 @@
             display: flex; align-items: center; gap: 8px;
         }
 
-        .nav-links { display: flex; gap: 8px; }
+        .nav-links { display: flex; gap: 6px; }
 
         .nav-link {
             text-decoration: none; color: var(--text-dark); font-size: 13px;
-            font-weight: 600; padding: 7px 16px; border-radius: 20px; transition: all 0.3s ease;
+            font-weight: 600; padding: 7px 14px; border-radius: 20px; transition: all 0.3s ease;
         }
 
         .nav-link.active, .nav-link:hover {
@@ -109,15 +109,7 @@
             margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
         }
 
-        .info-card p, .info-card ul {
-            font-size: 14px; color: var(--text-muted); line-height: 1.8;
-        }
-
-        .info-card ul { list-style: none; padding-left: 0; }
-        .info-card ul li { position: relative; padding-left: 24px; margin-bottom: 10px; }
-        .info-card ul li::before {
-            content: "✦"; position: absolute; left: 0; color: var(--pink-accent); font-weight: bold;
-        }
+        .info-card p { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
 
         .contact-box {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 14px;
@@ -134,17 +126,17 @@
 
         .btn-sparkle {
             display: inline-flex; align-items: center; gap: 10px;
-            background: linear-gradient(135deg, var(--purple-glow), var(--pink-accent));
+            background: linear-gradient(135deg, var(--rose-primary), var(--purple-glow));
             color: white; padding: 13px 32px; border-radius: 50px; font-size: 14.5px;
-            font-weight: 600; text-decoration: none; box-shadow: 0 12px 30px rgba(168, 85, 247, 0.25);
+            font-weight: 600; text-decoration: none; box-shadow: 0 12px 30px rgba(244, 63, 94, 0.25);
             transition: all 0.3s ease;
         }
 
-        .btn-sparkle:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(244, 63, 94, 0.35); }
+        .btn-sparkle:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(168, 85, 247, 0.35); }
 
         @media (max-width: 768px) {
             .top-navbar { width: 95%; padding: 8px 12px; }
-            .nav-link { padding: 6px 12px; font-size: 12px; }
+            .nav-link { padding: 6px 10px; font-size: 11.5px; }
             .content-section { padding: 24px; }
         }
     </style>
@@ -162,38 +154,35 @@
         </div>
         <nav class="nav-links">
             <a href="index.html" class="nav-link">หน้าแรก</a>
-            <a href="about.html" class="nav-link active">เกี่ยวกับฉัน</a>
-            <a href="archive.html" class="nav-link">ผลงาน & กิจกรรม</a>
+            <a href="personal.html" class="nav-link active">ประวัติส่วนตัว</a>
+            <a href="expectation.html" class="nav-link">เป้าหมาย</a>
+            <a href="portfolio.html" class="nav-link">ผลงาน & กิจกรรม</a>
         </nav>
     </header>
 
     <main class="main-wrapper">
         <section class="content-section">
             <div class="section-header-badge">
-                <i class="fa-solid fa-user-graduate"></i> Personal Background & Expectations
+                <i class="fa-solid fa-user-check"></i> Personal Profile
             </div>
-            <h1 class="page-title">ประวัติส่วนตัวและความคาดหวังในอนาคต</h1>
+            <h1 class="page-title">ประวัติส่วนตัว (Personal Profile)</h1>
 
             <div class="info-card">
-                <h3><i class="fa-solid fa-school"></i> ประวัติการศึกษา (Education)</h3>
-                <p><strong>กำลังศึกษา :</strong> ชั้นมัธยมศึกษาปีที่ 6 (แผนการเรียน วิทยาศาสตร์ - คณิตศาสตร์)</p>
-                <p><strong>สถาบัน :</strong> โรงเรียนบ้านบึง "อุตสาหกรรมนุกูล"</p>
-                <p style="margin-top: 8px;">
-                    การเรียนในสายวิทย์-คณิต ช่วยหล่อหลอมทักษะตรรกะ ตัวเลข คำนวณ และกระบวนการคิดแก้ปัญหาอย่างเป็นระบบ ซึ่งเป็นรากฐานสำคัญสูงสุดสำหรับการศึกษาต่อในระดับปริญญาตรี คณะวิศวกรรมศาสตร์
+                <h3><i class="fa-solid fa-id-card"></i> ข้อมูลทั่วไป</h3>
+                <p><strong>ชื่อ-นามสกุล :</strong> นางสาวศรัญญา แม้นแก้ว</p>
+                <p><strong>ระดับการศึกษา :</strong> มัธยมศึกษาปีที่ 6 (แผนการเรียน วิทยศาสตร์ - คณิตศาสตร์)</p>
+                <p><strong>สถาบันการศึกษา :</strong> โรงเรียนบ้านบึง "อุตสาหกรรมนุกูล"</p>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fa-solid fa-gem"></i> จุดเด่นและบุคลิกภาพ</h3>
+                <p>
+                    ดิฉันเป็นคนมีความตั้งใจจริงและมีกระบวนการคิดที่เป็นเหตุเป็นผล ได้รับการปลูกฝังทักษะคิดวิเคราะห์จากแผนการเรียนวิทย์-คณิต มีจุดเด่นคือ **ความจำดี เรียนรู้สิ่งใหม่ได้เร็ว** มีมนุษยสัมพันธ์ดีเยี่ยม **เข้ากับคนได้ง่าย** และรัก **การทำงานเป็นทีม** พร้อมปรับตัวเข้ากับสภาพแวดล้อมเพื่อสร้างผลงานที่ดีที่สุดร่วมกับผู้อื่นเสมอ
                 </p>
             </div>
 
             <div class="info-card">
-                <h3><i class="fa-solid fa-bullseye"></i> ความคาดหวังและเป้าหมายการเรียน (Expectations & Goals)</h3>
-                <ul>
-                    <li><strong>เป้าหมายหลัก :</strong> เข้าศึกษาต่อใน **คณะวิศวกรรมศาสตร์ สาขาวิชาวิศวกรรมอุตสาหการ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (สจล.)** เพื่อสะสมองค์ความรู้ด้าน System Optimization, Supply Chain และ Quality Control</li>
-                    <li><strong>เป้าหมายระหว่างการเรียน :</strong> มุ่งมั่นใช้ทักษะ **ความจำดีและการเรียนรู้ไว** ในการศึกษาวิชาเชิงคำนวณและระบบการจัดการ ตลอดจนใช้ **มนุษยสัมพันธ์และการทำงานเป็นทีม** ในการทำโครงงานวิศวกรรมร่วมกับเพื่อนและอาจารย์</li>
-                    <li><strong>อนาคตสายอาชีพ :</strong> ก้าวไปสู่การเป็น **วิศวกรอุตสาหการ (Industrial Engineer)** ที่สามารถบริหารจัดการและออกแบบระบบการผลิตให้มีประสิทธิภาพสูงสุด ประหยัดต้นทุน และปลอดภัย เพื่อช่วยพัฒนาภาคอุตสาหกรรมไทยให้ยั่งยืน</li>
-                </ul>
-            </div>
-
-            <div class="info-card">
-                <h3><i class="fa-solid fa-address-book"></i> ช่องทางการติดต่อ (Contact Information)</h3>
+                <h3><i class="fa-solid fa-address-card"></i> ช่องทางการติดต่อ</h3>
                 <div class="contact-box">
                     <div class="contact-item">
                         <i class="fa-solid fa-phone"></i>
@@ -214,8 +203,8 @@
         </section>
 
         <div class="btn-container">
-            <a href="archive.html" class="btn-sparkle">
-                <span>ไปยังหน้าผลงานและกิจกรรม</span>
+            <a href="expectation.html" class="btn-sparkle">
+                <span>อ่านเป้าหมายและความคาดหวัง</span>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
