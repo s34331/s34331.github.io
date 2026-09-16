@@ -90,7 +90,7 @@
             display: inline-flex; align-items: center; gap: 8px;
             background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.15));
             color: var(--pink-accent); border: 1px solid rgba(236, 72, 153, 0.3);
-            padding: 5px 166px; border-radius: 30px; font-size: 12.5px; font-weight: 600; margin-bottom: 12px;
+            padding: 5px 16px; border-radius: 30px; font-size: 12.5px; font-weight: 600; margin-bottom: 12px;
         }
 
         .archive-header h1 {
@@ -109,6 +109,11 @@
         }
 
         .showcase-card:hover { transform: translateY(-4px); background: rgba(255, 255, 255, 0.9); }
+
+        /* ปรับสไตล์สำหรับกรอบใส่รูปภาพคู่ (รูปกิจกรรม + เกียรติบัตร) */
+        .cert-stack-container {
+            display: flex; flex-direction: column; gap: 12px;
+        }
 
         .cert-frame {
             position: relative; border-radius: 18px; overflow: hidden;
@@ -189,6 +194,7 @@
         </section>
 
         <div class="showcase-grid">
+            <!-- การ์ดที่ 1: CHULA MOOC -->
             <article class="showcase-card">
                 <div class="cert-frame" onclick="openModal('S__51077125.jpg')">
                     <img src="S__51077125.jpg" alt="เกียรติบัตร CHULA MOOC" class="cert-img">
@@ -204,10 +210,19 @@
                 </div>
             </article>
 
+            <!-- การ์ดที่ 2: ตอบคำถามวิทยาศาสตร์ (รูปกิจกรรม S__51814404.jpg ด้านบน + รูปเกียรติบัตรสีฟ้า S__51077124.jpg ด้านล่าง) -->
             <article class="showcase-card">
-                <div class="cert-frame" onclick="openModal('merged_S__51077124.jpg')">
-                    <img src="merged_S__51077124.jpg" alt="S__51814404.jpg" class="cert-img">
-                    <div class="cert-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อขยายรูปภาพ</div>
+                <div class="cert-stack-container">
+                    <!-- รูปด้านบน: S__51814404.jpg -->
+                    <div class="cert-frame" onclick="openModal('S__51814404.jpg')">
+                        <img src="S__51814404.jpg" alt="ภาพกิจกรรมตอบคำถามวิทยาศาสตร์" class="cert-img">
+                        <div class="cert-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อขยายรูปภาพ</div>
+                    </div>
+                    <!-- รูปด้านล่าง: S__51077124.jpg (เกียรติบัตรสีฟ้า) -->
+                    <div class="cert-frame" onclick="openModal('S__51077124.jpg')">
+                        <img src="S__51077124.jpg" alt="เกียรติบัตรการแข่งขัน" class="cert-img">
+                        <div class="cert-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อขยายรูปภาพ</div>
+                    </div>
                 </div>
                 <div class="card-details">
                     <span style="font-size: 12px; font-weight: 700; color: var(--purple-glow);">Academic Competition</span>
